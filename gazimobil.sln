@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34728.123
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gazimobil", "gazimobil\gazimobil.csproj", "{7E65F867-C23F-4F77-9932-343B928C3AE6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7E65F867-C23F-4F77-9932-343B928C3AE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E65F867-C23F-4F77-9932-343B928C3AE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E65F867-C23F-4F77-9932-343B928C3AE6}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{7E65F867-C23F-4F77-9932-343B928C3AE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E65F867-C23F-4F77-9932-343B928C3AE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E65F867-C23F-4F77-9932-343B928C3AE6}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2F637E77-8A8F-48F1-A32A-FB245F9C4486}
+	EndGlobalSection
+EndGlobal
