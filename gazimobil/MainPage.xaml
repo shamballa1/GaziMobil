@@ -8,9 +8,9 @@
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="15">
             <HorizontalStackLayout VerticalOptions="Start" HorizontalOptions="Center">
-                <Image Source="gazi_logo.png" VerticalOptions="Center" WidthRequest="110" HeightRequest="110"/>
+                <Image Source="gazi_logo.png" VerticalOptions="Center" WidthRequest="106" HeightRequest="106"/>
                 <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Start">
-                    <Label Text="Gazi Mobil" VerticalOptions="Center" HorizontalOptions="Start" TextColor="#1b3e75" FontFamily="Roboto-Regular" FontSize="55" Margin="10,0,0,0"/>
+                    <Label Text="Gazi Mobil" VerticalOptions="Center" HorizontalOptions="Start" TextColor="#1b3e75" FontFamily="Roboto-Regular" FontSize="55" Margin="-2,0,0,0"/>
                     <Label Text="Gazili olmak ayrıcalıktır!" VerticalOptions="Center" HorizontalOptions="Center" TextColor="#1b3e75" FontFamily="Qadisah" FontSize="30" Margin="10,0,0,0"/>
                 </VerticalStackLayout>
             </HorizontalStackLayout>
@@ -88,7 +88,7 @@
                 </StackLayout>
             </Grid>
             
-            <BoxView WidthRequest="10" HeightRequest="90" Color="Transparent"/>
+            <BoxView WidthRequest="0" HeightRequest="90" Color="Transparent"/>
 
             <Grid Padding="10" HorizontalOptions="Center" VerticalOptions="End">
                 <StackLayout Grid.Column="0" Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="End">
