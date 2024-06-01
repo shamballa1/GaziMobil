@@ -4,14 +4,44 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:gazimobil"
-    Shell.FlyoutBehavior="Disabled"
-    Title="Gazi Mobil">
-   
+    xmlns:views="clr-namespace:gazimobil.Views"
+    Shell.FlyoutBehavior="Flyout"
+    FlyoutBackgroundColor="#1B3E75"
+    Title="Gazi Mobil"
+    BackgroundColor="#1B3E75">
+
+    <Shell.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Shell">
+                <Setter Property="Shell.NavBarHasShadow" Value="False" />
+                <Setter Property="Shell.BackgroundColor" Value="{StaticResource ShellBackgroundColor}" />
+                <Setter Property="Shell.TitleColor" Value="{StaticResource ShellTextColor}" />
+                <Setter Property="Shell.ForegroundColor" Value="{StaticResource ShellTextColor}"/>
+                <Setter Property="FlyoutWidth" Value="20" />
+            </Style>
+        </ResourceDictionary>
+    </Shell.Resources>
+
     <ShellContent
-       Title="Gazi Mobil"
-       Route="webViewPage"
-       ContentTemplate="{DataTemplate local:WebViewPage}">
+       Title="Ana Sayfa"
+       Route="anaSayfa"
+       Icon="home.png"
+       ContentTemplate="{DataTemplate local:MainPage}">
     </ShellContent>
 
-
+    <FlyoutItem Title="Harita" Icon="harita.png">
+        <ShellContent ContentTemplate="{DataTemplate local:HaritaPage}" />
+    </FlyoutItem>
+    <FlyoutItem Title="Kütüphane" Icon="kutuphane.png">
+        <ShellContent ContentTemplate="{DataTemplate local:KutuphanePage}" />
+    </FlyoutItem>
+    <FlyoutItem Title="Akademik Takvim" Icon="akademik_takvim.png">
+        <ShellContent ContentTemplate="{DataTemplate local:AkademikTakvimPage}" />
+    </FlyoutItem>
+    <FlyoutItem Title="Duyurular" Icon="duyuru_logo.png">
+        <ShellContent ContentTemplate="{DataTemplate local:DuyurularPage}" />
+    </FlyoutItem>
+    <FlyoutItem Title="Yemekhane Listesi" Icon="yemekhane_logo.png">
+        <ShellContent ContentTemplate="{DataTemplate views:YemekhanePage}" />
+    </FlyoutItem>
 </Shell>

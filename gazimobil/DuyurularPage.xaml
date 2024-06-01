@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="gazimobil.DuyurularPage"
+             x:Name="Page"
+             BackgroundColor="#f7f8fc">
+    <ScrollView>
+        <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="20" Spacing="20">
+            <Label Text="Duyurular"
+                   FontSize="36"
+                   FontAttributes="Bold"
+                   TextColor="#1b3e75"
+                   HorizontalOptions="Center" />
+
+            <Frame BackgroundColor="White" CornerRadius="10" Padding="10" HasShadow="True">
+                <StackLayout Spacing="10">
+                    <Entry x:Name="SearchEntry" Placeholder="Arama yapmak için tıklayınız." FontSize="18" TextColor="Black" BackgroundColor="White" />
+
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Spacing="20" Margin="10">
+                        <Button Text="Ara" Clicked="OnSearchButtonClicked" BackgroundColor="#1b3e75" TextColor="White" Padding="10,5" />
+                        <Button Text="Aramayı Sıfırla" Clicked="OnClearSearchButtonClicked" BackgroundColor="#1b3e75" TextColor="White" Padding="10,5" />
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+
+            <CollectionView x:Name="DuyurularCollectionView" Margin="10">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BackgroundColor="White" CornerRadius="10" Padding="15" Margin="5" HasShadow="True">
+                            <StackLayout>
+                                <Label Text="{Binding Title}" TextColor="#1b3e75" FontSize="18">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding Source={x:Reference Page}, Path=BindingContext.OpenWebViewCommand}" CommandParameter="{Binding Url}" />
+                                    </Label.GestureRecognizers>
+                                </Label>
+                                <Label Text="{Binding Date}" TextColor="#1b3e75" FontSize="14" />
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Spacing="10" Margin="20">
+                <Button Text="Önceki" Clicked="OnPreviousPageButtonClicked" BackgroundColor="#1b3e75" TextColor="White" Padding="10,5" />
+                <Label x:Name="PageLabel1" FontSize="18" TextColor="#1b3e75" VerticalOptions="Center" HorizontalOptions="Center" IsVisible="False" />
+                <Label x:Name="PageLabel2" FontSize="18" TextColor="#1b3e75" VerticalOptions="Center" HorizontalOptions="Center" />
+                <Label x:Name="PageLabel3" FontSize="18" TextColor="#1b3e75" VerticalOptions="Center" HorizontalOptions="Center" />
+                <Button Text="Sonraki" Clicked="OnNextPageButtonClicked" BackgroundColor="#1b3e75" TextColor="White" Padding="10,5" />
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

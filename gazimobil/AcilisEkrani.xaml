@@ -14,8 +14,8 @@
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
 
-        <Image Source="gazi_logo.png" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,10,0,-20" Grid.Row="0" Grid.Column="1" />
-        <Label Text="Gazi Mobil" FontFamily="Modern" HorizontalOptions="Center" FontSize="70" VerticalOptions="Center" Margin="0,10,0,-20" Grid.Row="1" Grid.Column="1"/>
-        <Label Text="Gazili olmak ayrıcalıktır!" FontSize="40" FontFamily="Qadisah" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,10,0,0" Grid.Row="2" Grid.Column="1" />
+        <Image Source="gazi_logo.png" HeightRequest="200" WidthRequest="200" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,10,0,-20" Grid.Row="0" Grid.Column="1" />
+        <Label Text="Gazi Mobil" FontFamily="Modern" HorizontalOptions="Center" FontSize="70" VerticalOptions="Center" Margin="0,10,0,-20" Grid.Row="1" Grid.Column="1" TextColor="White"/>
+        <Label Text="Gazili olmak ayrıcalıktır!" FontSize="40" FontFamily="Qadisah" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,10,0,0" Grid.Row="2" Grid.Column="1" TextColor="White"/>
     </Grid>
 </ContentPage>
