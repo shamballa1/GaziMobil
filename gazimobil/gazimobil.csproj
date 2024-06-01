@@ -21,7 +21,7 @@
 		<Nullable>enable</Nullable>
 
 		<!-- Display name -->
-		<ApplicationTitle>gazimobil</ApplicationTitle>
+		<ApplicationTitle>Gazi Mobil</ApplicationTitle>
 
 		<!-- App Identifier -->
 		<ApplicationId>com.companyname.gazimobil</ApplicationId>
@@ -40,7 +40,7 @@
 
 	<ItemGroup>
 		<!-- App Icon -->
-
+		<MauiIcon Include="Resources\AppIcon\uygulama_logo.png" />
 		<!-- Splash Screen -->
 		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
 
@@ -53,16 +53,6 @@
 
 		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <None Remove="Resources\AppIcon\appicon.svg" />
-	  <None Remove="Resources\AppIcon\uygulama_logo.png" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<MauiIcon Include="Resources\AppIcon\appicon.svg" />
-		<MauiIcon Include="Resources\AppIcon\uygulama_logo.png" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -102,6 +92,10 @@
 	  <MauiXaml Update="YemekhanePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+		<Folder Include="Resources\AppIcon\" />
 	</ItemGroup>
 
 </Project>
