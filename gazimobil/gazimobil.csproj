@@ -57,10 +57,12 @@
 
 	<ItemGroup>
 	  <None Remove="Resources\AppIcon\appicon.svg" />
+	  <None Remove="Resources\AppIcon\uygulama_logo.png" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<MauiIcon Include="Resources\AppIcon\appicon.svg" />
+		<MauiIcon Include="Resources\AppIcon\uygulama_logo.png" />
 	</ItemGroup>
 
 	<ItemGroup>
