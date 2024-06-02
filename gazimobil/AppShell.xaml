@@ -10,25 +10,10 @@
     Title="Gazi Mobil"
     BackgroundColor="#1B3E75">
 
-    <Shell.Resources>
-        <ResourceDictionary>
-            <Style TargetType="Shell">
-                <Setter Property="Shell.NavBarHasShadow" Value="False" />
-                <Setter Property="Shell.BackgroundColor" Value="{StaticResource ShellBackgroundColor}" />
-                <Setter Property="Shell.TitleColor" Value="{StaticResource ShellTextColor}" />
-                <Setter Property="Shell.ForegroundColor" Value="{StaticResource ShellTextColor}"/>
-                <Setter Property="FlyoutWidth" Value="20" />
-            </Style>
-        </ResourceDictionary>
-    </Shell.Resources>
 
-    <ShellContent
-       Title="Ana Sayfa"
-       Route="anaSayfa"
-       Icon="home.png"
-       ContentTemplate="{DataTemplate local:MainPage}">
-    </ShellContent>
-
+    <FlyoutItem Title="Ana Sayfa" Icon="home.png">
+        <ShellContent ContentTemplate="{DataTemplate local:MainPage}" />
+    </FlyoutItem>
     <FlyoutItem Title="Harita" Icon="harita.png">
         <ShellContent ContentTemplate="{DataTemplate local:HaritaPage}" />
     </FlyoutItem>
