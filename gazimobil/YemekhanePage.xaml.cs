@@ -9,11 +9,13 @@ namespace gazimobil.Views
     public partial class YemekhanePage : ContentPage
     {
         private readonly string dosyaYolu;
+        private DateTime currentDate;
 
         public YemekhanePage()
         {
             InitializeComponent();
             dosyaYolu = Path.Combine(AppContext.BaseDirectory, "Resources", "YemekhaneMenusu.txt");
+            currentDate = DateTime.Now;
             LoadMenu();
         }
 
@@ -21,7 +23,8 @@ namespace gazimobil.Views
         {
             try
             {
-                var menu = await BugununMenusuAsync();
+                var menu = await BugununMenusuAsync(currentDate);
+                TarihLabel.Text = currentDate.ToString("dd.MM.yyyy dddd", new CultureInfo("tr-TR"));
                 if (!string.IsNullOrEmpty(menu))
                 {
                     BugununMenusuLabel.Text = menu;
@@ -37,9 +40,21 @@ namespace gazimobil.Views
             }
         }
 
-        public async Task<string> BugununMenusuAsync()
+        private void OnOncekiButtonClicked(object sender, EventArgs e)
         {
-            string bugun = DateTime.Now.ToString("dd.MM.yyyy dddd", new CultureInfo("tr-TR"));
+            currentDate = currentDate.AddDays(-1);
+            LoadMenu();
+        }
+
+        private void OnSonrakiButtonClicked(object sender, EventArgs e)
+        {
+            currentDate = currentDate.AddDays(1);
+            LoadMenu();
+        }
+
+        public async Task<string> BugununMenusuAsync(DateTime date)
+        {
+            string bugun = date.ToString("dd.MM.yyyy dddd", new CultureInfo("tr-TR"));
 
             if (!File.Exists(dosyaYolu))
             {
@@ -47,14 +62,25 @@ namespace gazimobil.Views
             }
 
             string[] satirlar = await File.ReadAllLinesAsync(dosyaYolu);
-            for (int i = 0; i < satirlar.Length; i++)
+            bool tarihBulundu = false;
+
+            foreach (var satir in satirlar)
             {
-                if (satirlar[i].Trim().StartsWith(bugun))
+                if (satir.Trim().StartsWith(bugun))
                 {
-                    return string.Join("\n", satirlar, i + 1, 6);
+                    tarihBulundu = true;
+                    int index = Array.IndexOf(satirlar, satir);
+
+                    if (index + 6 <= satirlar.Length)
+                    {
+                        return string.Join("\n", satirlar, index + 1, 6).Trim();
+                    }
+                    else
+                    {
+                        return "Menü bilgileri eksik.";
+                    }
                 }
             }
-
             return "Bugün için menü bulunamadý.";
         }
     }

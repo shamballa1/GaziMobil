@@ -4,10 +4,37 @@
              x:Class="gazimobil.Views.YemekhanePage">
 
     <StackLayout Padding="20" BackgroundColor="White">
-        <Label x:Name="BugununMenusuLabel"
+        <Label Text="Günün Menüsü"
+               FontSize="24"
+               HorizontalOptions="Center"
+               VerticalOptions="Start"
                TextColor="#1B3E75"
-               FontSize="18" 
-               HorizontalOptions="Center" 
-               VerticalOptions="StartAndExpand" />
+               FontAttributes="Bold" />
+
+        <Label x:Name="TarihLabel"
+               FontSize="22"
+               HorizontalOptions="Center"
+               VerticalOptions="Start"
+               TextColor="#1B3E75"
+               FontAttributes="Bold" />
+
+        <Grid HeightRequest="3">
+            <BoxView BackgroundColor="#1B3E75" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Opacity="0.9"/>
+        </Grid>
+
+        <ScrollView>
+            <StackLayout>
+                <Label x:Name="BugununMenusuLabel"
+                       TextColor="#1B3E75"
+                       FontSize="18" 
+                       HorizontalOptions="Center" 
+                       VerticalOptions="StartAndExpand" />
+            </StackLayout>
+        </ScrollView>
+
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="EndAndExpand">
+            <Button Text="Önceki" BackgroundColor="#1B3E75" TextColor="White" Clicked="OnOncekiButtonClicked" />
+            <Button Text="Sonraki" BackgroundColor="#1B3E75" TextColor="White" Clicked="OnSonrakiButtonClicked" />
+        </StackLayout>
     </StackLayout>
 </ContentPage>
