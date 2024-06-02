@@ -11,10 +11,7 @@
         <ScrollView Grid.Row="0">
 
             <VerticalStackLayout Padding="4" Spacing="0">
-                <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center">
-                    <Label Text="Gazi Mobil" VerticalOptions="Center" HorizontalOptions="Center" TextColor="#1b3e75" FontFamily="Roboto-Regular" FontSize="55" Margin="-2,0,0,0"/>
-                    <Label Text="Gazili olmak ayrıcalıktır!" VerticalOptions="Center" HorizontalOptions="Center" TextColor="#1b3e75" FontFamily="Qadisah" FontSize="30" Margin="10,0,0,0"/>
-                </VerticalStackLayout>
+                
                 <Grid HeightRequest="5">
                     <BoxView BackgroundColor="#1B3E75" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Opacity="0.9"/>
                 </Grid>
