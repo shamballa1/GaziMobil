@@ -8,11 +8,12 @@ namespace gazimobil.Views
 {
     public partial class YemekhanePage : ContentPage
     {
-        private readonly string dosyaYolu = @"C:\Users\kamil\Desktop\C#\gazimobil\gazimobil\Resources\YemekhaneMenusu.txt";
+        private readonly string dosyaYolu;
 
         public YemekhanePage()
         {
             InitializeComponent();
+            dosyaYolu = Path.Combine(AppContext.BaseDirectory, "Resources", "YemekhaneMenusu.txt");
             LoadMenu();
         }
 

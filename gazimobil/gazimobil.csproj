@@ -98,5 +98,10 @@
 	<ItemGroup>
 		<Folder Include="Resources\AppIcon\" />
 	</ItemGroup>
+	
+	<ItemGroup>
+		<Content Include="Resources\YemekhaneMenusu.txt" CopyToOutputDirectory="PreserveNewest" />
+	</ItemGroup>
+
 
 </Project>
