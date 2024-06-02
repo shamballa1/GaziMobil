@@ -1,6 +1,10 @@
-﻿using Microsoft.Maui.Controls;
+﻿using HtmlAgilityPack;
+using Microsoft.Maui.Controls;
 using System;
 using System.Threading.Tasks;
+using System.Net.Http;
+using Newtonsoft.Json.Linq;
+
 
 namespace gazimobil
 {
@@ -9,6 +13,8 @@ namespace gazimobil
         public MainPage()
         {
             InitializeComponent();
+            
+
         }
 
         private async Task AnimateAndNavigate(string url)
