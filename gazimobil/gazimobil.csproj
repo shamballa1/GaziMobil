@@ -54,6 +54,11 @@
 		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
 	</ItemGroup>
+
+	<ItemGroup>
+	  <None Remove="Resources\Fonts\Satisfy-Regular.ttf" />
+	  <None Remove="Resources\Fonts\Sofia Pro Black Az.otf" />
+	</ItemGroup>
 	
 	<ItemGroup>
 		<PackageReference Include="HtmlAgilityPack" Version="1.11.61" />

@@ -16,6 +16,8 @@ namespace gazimobil
                     fonts.AddFont("Qadisah.ttf");
                     fonts.AddFont("Roboto-Italic.ttf");
                     fonts.AddFont("Roboto-Regular.ttf");
+                    fonts.AddFont("Satisfy-Regular.ttf","SatisfyRegular");
+                    fonts.AddFont("Sofia Pro Black Az.otf", "SofiaPro");
                 });
 
 #if DEBUG
