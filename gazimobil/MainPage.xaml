@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Name="MainPageInstance"
@@ -31,7 +31,7 @@
                 </Frame>
 
                 <!-- Duyurular Bölümü -->
-                <Frame CornerRadius="10" BackgroundColor="#1B3E75" Padding="10" Margin="3,10,3,12" HeightRequest="300" CornerRadius="10">
+                <Frame CornerRadius="10" BackgroundColor="#1B3E75" Padding="10" Margin="3,10,3,12" HeightRequest="300">
                     <StackLayout>
                         <Label Text="Duyurular" FontSize="24" TextColor="White" HorizontalOptions="Center"/>
                             <CollectionView x:Name="DuyurularCollectionView" ItemsSource="{Binding DuyurularListesi}" HeightRequest="400">
