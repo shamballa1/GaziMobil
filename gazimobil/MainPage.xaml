@@ -30,26 +30,46 @@
                     <Label Text="Hava Durumu" FontSize="24" TextColor="White" HorizontalOptions="Center"/>
                 </Frame>
 
+                <!-- Yemek listesi ve DP Bölümü -->
+                <Grid ColumnDefinitions="*,*">
+                    <!-- Yemek listesi Bölümü -->
+                    <Frame Grid.Column="0" CornerRadius="10" BackgroundColor="white" Padding="10" Margin="3,6,0,0">
+                        <StackLayout>
+                            <Label x:Name="YemekhaneTarihLabel" Text="Günün Menüsü" FontSize="24" TextColor="#1B3E75" HorizontalOptions="Center"/>
+                            <Label x:Name="BugununMenusuLabel" TextColor="#1B3E75" FontSize="18" HorizontalOptions="Center"/>
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="EndAndExpand">
+                                <Button Text="Önceki" BackgroundColor="#1B3E75" TextColor="White" Clicked="OnOncekiButtonClicked" Margin="10,4,0,10"/>
+                                <Button Text="Sonraki" BackgroundColor="#1B3E75" TextColor="white" Clicked="OnSonrakiButtonClicked" Margin="10,4,0,10" />
+                            </StackLayout>
+                        </StackLayout>
+                    </Frame>
+
+                    <!-- D.P. Bölümü -->
+                    <Frame Grid.Column="1" CornerRadius="10" BackgroundColor="White" Padding="10" Margin="5,6,3,0">
+                        <Label Text="D.P." FontSize="24" TextColor="#1B3E75" HorizontalOptions="Center"/>
+                    </Frame>
+                </Grid>
+
                 <!-- Duyurular Bölümü -->
                 <Frame CornerRadius="10" BackgroundColor="#1B3E75" Padding="10" Margin="3,10,3,12" HeightRequest="300">
                     <StackLayout>
                         <Label Text="Duyurular" FontSize="24" TextColor="White" HorizontalOptions="Center"/>
-                            <CollectionView x:Name="DuyurularCollectionView" ItemsSource="{Binding DuyurularListesi}" HeightRequest="400">
-                                <CollectionView.ItemTemplate>
-                                    <DataTemplate>
-                                        <Frame BackgroundColor="White" CornerRadius="10" Padding="15" Margin="5" HasShadow="True">
-                                            <StackLayout>
-                                                <Label Text="{Binding Title}" TextColor="Black" FontSize="18">
-                                                    <Label.GestureRecognizers>
-                                                        <TapGestureRecognizer Command="{Binding Source={x:Reference MainPageInstance}, Path=BindingContext.OpenWebViewCommand}" CommandParameter="{Binding Url}" />
-                                                    </Label.GestureRecognizers>
-                                                </Label>
-                                                <Label Text="{Binding Date}" TextColor="Gray" FontSize="14" />
-                                            </StackLayout>
-                                        </Frame>
-                                    </DataTemplate>
-                                </CollectionView.ItemTemplate>
-                            </CollectionView>
+                        <CollectionView x:Name="DuyurularCollectionView" ItemsSource="{Binding DuyurularListesi}" HeightRequest="400">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Frame BackgroundColor="White" CornerRadius="10" Padding="15" Margin="5" HasShadow="True">
+                                        <StackLayout>
+                                            <Label Text="{Binding Title}" TextColor="Black" FontSize="18">
+                                                <Label.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding Source={x:Reference MainPageInstance}, Path=BindingContext.OpenWebViewCommand}" CommandParameter="{Binding Url}" />
+                                                </Label.GestureRecognizers>
+                                            </Label>
+                                            <Label Text="{Binding Date}" TextColor="Gray" FontSize="14" />
+                                        </StackLayout>
+                                    </Frame>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
                     </StackLayout>
                 </Frame>
 
@@ -62,25 +82,7 @@
                     <Button Text="Sonraki" Clicked="OnNextPageButtonClicked" BackgroundColor="#1b3e75" TextColor="White" />
                 </StackLayout>
 
-                <!-- Yemek listesi ve DP Bölümü -->
-                <Grid ColumnDefinitions="*,*">
-                    <!-- Yemek listesi Bölümü -->
-                    <Frame Grid.Column="0" CornerRadius="10" BackgroundColor="#1B3E75" Padding="10" Margin="3,6,0,0">
-                        <StackLayout>
-                            <Label x:Name="YemekhaneTarihLabel" Text="Günün Menüsü" FontSize="24" TextColor="White" HorizontalOptions="Center"/>
-                            <Label x:Name="BugununMenusuLabel" TextColor="White" FontSize="18" HorizontalOptions="Center"/>
-                            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="EndAndExpand">
-                                <Button Text="Önceki" BackgroundColor="White" TextColor="#1B3E75" Clicked="OnOncekiButtonClicked" Margin="10,4,0,10"/>
-                                <Button Text="Sonraki" BackgroundColor="White" TextColor="#1B3E75" Clicked="OnSonrakiButtonClicked" Margin="10,4,0,10" />
-                            </StackLayout>
-                        </StackLayout>
-                    </Frame>
 
-                    <!-- D.P. Bölümü -->
-                    <Frame Grid.Column="1" CornerRadius="10" BackgroundColor="#1B3E75" Padding="10" Margin="5,6,3,0">
-                        <Label Text="D.P." FontSize="24" TextColor="White" HorizontalOptions="Center"/>
-                    </Frame>
-                </Grid>
 
                 <BoxView HeightRequest="0" Color="Transparent" Margin="0,100,0,0"/>
             </VerticalStackLayout>
@@ -88,7 +90,7 @@
 
         <!-- Sabit Alt Menü -->
         <Grid Grid.Row="1" VerticalOptions="End" BackgroundColor="#1b3e75" Padding="5">
-            
+
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
