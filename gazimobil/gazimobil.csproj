@@ -42,7 +42,7 @@
 		<!-- App Icon -->
 		<MauiIcon Include="Resources\AppIcon\uygulama_logo.png" />
 		<!-- Splash Screen -->
-		<MauiSplashScreen Include="Resources\Splash\giris_ekran.svg" Color="#1b3e75" BaseSize="256,256" />
+		<MauiSplashScreen Include="Resources\Splash\giris_ekran.svg" Color="#1b3e75" BaseSize="400,400" />
 
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
