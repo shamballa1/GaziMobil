@@ -9,14 +9,7 @@ namespace gazimobil
         public App()
         {
             InitializeComponent();
-            MainPage = new AcilisEkrani();
-        }
-
-        protected override async void OnStart()
-        {
-                await Task.Delay(1000);
-                MainPage = new AppShell();
-        }
-            
+            MainPage = new AppShell();
+        }   
     }
 }

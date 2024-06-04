@@ -42,7 +42,7 @@
 		<!-- App Icon -->
 		<MauiIcon Include="Resources\AppIcon\uygulama_logo.png" />
 		<!-- Splash Screen -->
-		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
+		<MauiSplashScreen Include="Resources\Splash\giris_ekran.svg" Color="#1b3e75" BaseSize="256,256" />
 
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
@@ -71,15 +71,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="AcilisEkrani.xaml.cs">
-	    <DependentUpon>AcilisEkrani.xaml</DependentUpon>
-	  </Compile>
-	</ItemGroup>
-
-	<ItemGroup>
-	  <MauiXaml Update="AcilisEkrani.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
 	  <MauiXaml Update="AkademikTakvimPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
