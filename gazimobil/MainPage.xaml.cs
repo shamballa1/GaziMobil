@@ -139,7 +139,7 @@ namespace gazimobil
             {
                 var menu = await BugununMenusuAsync(date);
                 BugununMenusuLabel.Text = menu;
-                YemekhaneTarihLabel.Text = $"Günün Menüsü{date.ToString("dd.MM.yyyy dddd", new CultureInfo("tr-TR"))}";
+                YemekhaneTarihLabel.Text = $"Günün Menüsü\n{date.ToString("dd.MM.yyyy dddd", new CultureInfo("tr-TR"))}";
             }
             catch (Exception ex)
             {

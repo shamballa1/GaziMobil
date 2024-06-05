@@ -3,9 +3,23 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="gazimobil.KutuphanePage">
     <StackLayout BackgroundColor="White">
-        <Label Text="Bu Kutuphane Sayfasıdır" 
-               VerticalOptions="CenterAndExpand" 
-               HorizontalOptions="CenterAndExpand" />
-        <Button Text="Kutuphane Sayfasi" Clicked="KutuphaneButtonClicked" />
+        <Label Text="Çalışma Saatleri" 
+               VerticalOptions="Center" 
+               HorizontalOptions="Center"
+               FontSize="22"
+               FontAttributes="Bold"/>
+        <Label Text="Hafta İçi | Cumartesi : 08:30 - 22:00" 
+       VerticalOptions="Center" 
+       HorizontalOptions="Center"
+               FontSize="22"/>
+        <Label Text="Zemin Kat Okuma Salonu : 7/24" 
+       VerticalOptions="Center" 
+       HorizontalOptions="Center"
+               FontSize="22"/>
+        <Label Text="Sınav Dönemlerinde : 7/24" 
+       VerticalOptions="Center" 
+       HorizontalOptions="Center"
+               FontSize="22"/>
+        <Button Text="Kitap Arama" Clicked="KutuphaneButtonClicked" />
     </StackLayout>
 </ContentPage>
