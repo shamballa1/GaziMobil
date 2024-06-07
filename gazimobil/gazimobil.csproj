@@ -55,6 +55,10 @@
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
 	</ItemGroup>
 
+	
+
+	
+
 	<ItemGroup>
 	  <None Remove="Resources\Fonts\Satisfy-Regular.ttf" />
 	  <None Remove="Resources\Fonts\Sofia Pro Black Az.otf" />
@@ -89,6 +93,12 @@
 	  <MauiXaml Update="YemekhanePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="NotPage.xaml">
+		<Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="DPPage.xaml">
+		<Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>	
 	</ItemGroup>
 	
 	<ItemGroup>
@@ -98,6 +108,10 @@
 	<ItemGroup>
 		<Content Include="Resources\YemekhaneMenusu.txt" CopyToOutputDirectory="PreserveNewest" />
 	</ItemGroup>
+
+	
+
+	
 
 
 </Project>

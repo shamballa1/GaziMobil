@@ -29,4 +29,10 @@
     <FlyoutItem Title="Yemekhane Listesi" Icon="yemekhane_logo.png">
         <ShellContent ContentTemplate="{DataTemplate views:YemekhanePage}" />
     </FlyoutItem>
+    <FlyoutItem Title="Not Hesaplama">
+        <ShellContent ContentTemplate="{DataTemplate local:NotPage}" />
+    </FlyoutItem>
+    <FlyoutItem Title="Ders Programı">
+        <ShellContent ContentTemplate="{DataTemplate local:DPPage}" />
+    </FlyoutItem>
 </Shell>
