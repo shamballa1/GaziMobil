@@ -62,16 +62,17 @@
 	<ItemGroup>
 	  <None Remove="Resources\Fonts\Satisfy-Regular.ttf" />
 	  <None Remove="Resources\Fonts\Sofia Pro Black Az.otf" />
+	  <None Remove="Resources\Raw\YemekhaneMenusu.txt" />
 	</ItemGroup>
 	
 	<ItemGroup>
 		<PackageReference Include="HtmlAgilityPack" Version="1.11.61" />
-		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
-		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
+		<PackageReference Include="Microsoft.Maui.Controls" Version="8.0.40" />
+		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="8.0.40" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
 		<PackageReference Include="Microsoft.Maui.Essentials" Version="8.0.40" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-		<PackageReference Include="Plugin.Maui.Audio" Version="2.1.0" />
+		<PackageReference Include="Plugin.Maui.Audio" Version="3.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -104,9 +105,9 @@
 	<ItemGroup>
 		<Folder Include="Resources\AppIcon\" />
 	</ItemGroup>
-
+	
 	<ItemGroup>
-		<Content Include="Resources\YemekhaneMenusu.txt" CopyToOutputDirectory="PreserveNewest" />
+	  <MauiAsset Include="Resources\YemekhaneMenusu.txt" />
 	</ItemGroup>
 
 	

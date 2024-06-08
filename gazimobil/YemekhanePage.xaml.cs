@@ -4,7 +4,7 @@ using System.IO;
 using System.Threading.Tasks;
 using Microsoft.Maui.Controls;
 
-namespace gazimobil.Views
+namespace gazimobil
 {
     public partial class YemekhanePage : ContentPage
     {
@@ -40,6 +40,12 @@ namespace gazimobil.Views
             }
         }
 
+        private void BugunButtonClicked(object sender, EventArgs e)
+        {
+            currentDate = DateTime.Now;
+            LoadMenu();
+        }
+
         private void OnOncekiButtonClicked(object sender, EventArgs e)
         {
             currentDate = currentDate.AddDays(-1);
@@ -52,7 +58,7 @@ namespace gazimobil.Views
             LoadMenu();
         }
 
-        public async Task<string> BugununMenusuAsync(DateTime date)
+         public async Task<string> BugununMenusuAsync(DateTime date)
         {
             string bugun = date.ToString("dd.MM.yyyy dddd", new CultureInfo("tr-TR"));
 

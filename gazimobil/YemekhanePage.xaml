@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="gazimobil.Views.YemekhanePage">
+             x:Class="gazimobil.YemekhanePage">
 
     <StackLayout Padding="20" BackgroundColor="White">
         <Label Text="Günün Menüsü"
@@ -34,6 +34,7 @@
 
         <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="EndAndExpand">
             <Button Text="Önceki" BackgroundColor="#1B3E75" TextColor="White" Clicked="OnOncekiButtonClicked" />
+            <Button Text="Bugün" BackgroundColor="#1B3E75" TextColor="White" Clicked="BugunButtonClicked" />
             <Button Text="Sonraki" BackgroundColor="#1B3E75" TextColor="White" Clicked="OnSonrakiButtonClicked" />
         </StackLayout>
     </StackLayout>
