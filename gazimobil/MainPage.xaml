@@ -27,21 +27,23 @@
 
                 <!-- Hava Durumu Bölümü -->
                 <Frame CornerRadius="10" BackgroundColor="#1B3E75" Padding="10" Margin="3,5,3,0">
-                    <Label Text="Hava Durumu" FontSize="24" TextColor="White" HorizontalOptions="Center"/>
+                    <Label x:Name="WeatherLabel" FontSize="24" TextColor="White" HorizontalOptions="Center"/>
                 </Frame>
+
+
 
                 <!-- Yemek listesi ve DP Bölümü -->
                 <Grid ColumnDefinitions="*,*">
                     <!-- Yemek listesi Bölümü -->
                     <Frame Grid.Column="0" CornerRadius="10" BackgroundColor="white" Padding="10" Margin="3,6,0,0">
-                         <StackLayout>
-                                <Label x:Name="YemekhaneTarihLabel" Text="Günün Menüsü" FontSize="24" TextColor="#1B3E75" HorizontalOptions="Center"/>
-                                <Label x:Name="BugununMenusuLabel" TextColor="#1B3E75" FontSize="18" HorizontalOptions="Center"/>
-                         </StackLayout>
-                         <ContentView.GestureRecognizers>
+                        <StackLayout>
+                            <Label x:Name="YemekhaneTarihLabel" Text="Günün Menüsü" FontSize="24" TextColor="#1B3E75" HorizontalOptions="Center"/>
+                            <Label x:Name="BugununMenusuLabel" TextColor="#1B3E75" FontSize="18" HorizontalOptions="Center"/>
+                        </StackLayout>
+                        <ContentView.GestureRecognizers>
                             <SwipeGestureRecognizer Direction="Left" Swiped="OnSwipeLeft"/>
                             <SwipeGestureRecognizer Direction="Right" Swiped="OnSwipeRight"/>
-                         </ContentView.GestureRecognizers>
+                        </ContentView.GestureRecognizers>
                     </Frame>
 
                     <!-- D.P. Bölümü -->

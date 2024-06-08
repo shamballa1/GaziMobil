@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Windows.Input;
 using System.Text;
 using System.Collections.ObjectModel;
+using System.Xml.Linq;
 
 
 namespace gazimobil
@@ -31,8 +32,40 @@ namespace gazimobil
             currentDate = DateTime.Now;
             LoadDuyurular();
             LoadMenu(currentDate);
+            LoadWeatherData();
         }
-       
+        //Hava Durumu
+        private async void LoadWeatherData()
+        {
+            try
+            {
+                string city = "Ankara";
+                string apiUrl = $"https://api.openweathermap.org/data/2.5/weather?q={city}&mode=xml&lang=tr&units=metric&appid=d8cb0ab350365f7b1f63c4f63a2b9373";
+
+                HttpClient client = new HttpClient();
+                HttpResponseMessage response = await client.GetAsync(apiUrl);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    string xmlData = await response.Content.ReadAsStringAsync();
+                    XDocument xmlDoc = XDocument.Parse(xmlData);
+
+                    string temperature = xmlDoc.Root.Element("temperature").Attribute("value").Value;
+                    string weatherDescription = xmlDoc.Root.Element("weather").Attribute("value").Value;
+
+                    WeatherLabel.Text = $"ANKARA: {weatherDescription}, Sıcaklık: {temperature}°C";
+                }
+                else
+                {
+                    WeatherLabel.Text = "Hava durumu verileri alınamadı.";
+                }
+            }
+            catch (Exception ex)
+            {
+                WeatherLabel.Text = $"Hata: {ex.Message}";
+            }
+        }
+
         //Duyurular
         private async Task OpenWebView(string url)
         {
