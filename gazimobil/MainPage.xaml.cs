@@ -32,7 +32,7 @@ namespace gazimobil
             LoadDuyurular();
             LoadMenu(currentDate);
         }
-
+       
         //Duyurular
         private async Task OpenWebView(string url)
         {
@@ -209,13 +209,13 @@ namespace gazimobil
             await AnimateAndNavigate("https://www.linkedin.com/school/gazi-university/?originalSubdomain=tr");
         }
 
-        private void OnOncekiButtonClicked(object sender, EventArgs e)
+        private void OnSwipeRight(object sender, EventArgs e)
         {
             currentDate = currentDate.AddDays(-1);
             LoadMenu(currentDate);
         }
 
-        private void OnSonrakiButtonClicked(object sender, EventArgs e)
+        private void OnSwipeLeft(object sender, EventArgs e)
         {
             currentDate = currentDate.AddDays(1);
             LoadMenu(currentDate);
