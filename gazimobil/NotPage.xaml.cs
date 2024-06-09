@@ -13,19 +13,42 @@ namespace gazimobil
             InitializeComponent();
         }
 
-        private void OnAddCourseClicked(object sender, EventArgs e)
+        private async void OnAddCourseClicked(object sender, EventArgs e)
         {
             string courseName = CourseNameEntry.Text;
+            if (string.IsNullOrWhiteSpace(courseName))
+            {
+                await DisplayAlert("Hata", "Lütfen ders adını girin.", "Tamam");
+                return;
+            }
+
+            if (CreditPicker.SelectedIndex == -1)
+            {
+                await DisplayAlert("Hata", "Lütfen Kredi / AKTS seçin.", "Tamam");
+                return;
+            }
+
+            if (GradePicker.SelectedIndex == -1)
+            {
+                await DisplayAlert("Hata", "Lütfen harf notu seçin.", "Tamam");
+                return;
+            }
+
             double credit = double.Parse(CreditPicker.SelectedItem.ToString());
             string gradeLetter = GradePicker.SelectedItem.ToString();
             double grade = GetNumericGrade(gradeLetter);
 
-            Course course = new Course { Name = courseName, Credit = credit, Grade = grade };
+            Course course = new Course { Name = courseName, Credit = credit, Grade = grade, GradeLetter= gradeLetter };
             courses.Add(course);
             CoursesListView.ItemsSource = null;
             CoursesListView.ItemsSource = courses;
 
             UpdateAverages();
+
+            // Input alanlarını sıfırla
+            CourseNameEntry.Text = string.Empty;
+            CreditPicker.SelectedIndex = -1;
+            GradePicker.SelectedIndex = -1;
         }
 
         private double GetNumericGrade(string gradeLetter)
@@ -41,7 +64,7 @@ namespace gazimobil
                 case "DD": return 1.0;
                 case "FD": return 0.5;
                 case "FF": return 0.0;
-                default: throw new ArgumentException("Invalid grade letter");
+                default: throw new ArgumentException("Geçersiz harf notu!");
             }
         }
 
@@ -64,25 +87,26 @@ namespace gazimobil
         {
             var menuItem = sender as MenuItem;
             var course = menuItem?.BindingContext as Course;
-            if (course != null)
-            {
-                courses.Remove(course);
-                CoursesListView.ItemsSource = null;
-                CoursesListView.ItemsSource = courses;
-                UpdateAverages();
+                if (course != null)
+                {
+                    courses.Remove(course);
+                    CoursesListView.ItemsSource = null;
+                    CoursesListView.ItemsSource = courses;
+                    UpdateAverages();
+                }
             }
         }
-    }
 
     public class Course
     {
         public string Name { get; set; }
         public double Credit { get; set; }
         public double Grade { get; set; }
+        public string GradeLetter { get; set; }
 
         public override string ToString()
         {
-            return $"{Name} - Kredi: {Credit}, Not: {Grade}";
+            return $"{Name}  Kredi/AKTS: {Credit} Harf Notu: {GradeLetter}";
         }
     }
 }
