@@ -27,10 +27,16 @@
 
                 <!-- Hava Durumu Bölümü -->
                 <Frame CornerRadius="10" BackgroundColor="#1B3E75" Padding="10" Margin="3,5,3,0">
-                    <Label x:Name="WeatherLabel" FontSize="24" TextColor="White" HorizontalOptions="Center"/>
+                    <HorizontalStackLayout HorizontalOptions="Center">
+                        <Label Text="ANKARA :  " FontSize="24" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"/>
+                        <VerticalStackLayout HorizontalOptions="Center">
+                            <Image x:Name="WeatherIcon" WidthRequest="50" HeightRequest="50" HorizontalOptions="Center"/>
+                            <Label x:Name="WeatherLabel" FontSize="24" TextColor="White" HorizontalOptions="Center"/>
+                        </VerticalStackLayout>
+                        <Label x:Name="WeatherLabel2" FontSize="24" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    </HorizontalStackLayout>
                 </Frame>
-
-
+                
 
                 <!-- Yemek listesi ve DP Bölümü -->
                 <Grid ColumnDefinitions="*,*">

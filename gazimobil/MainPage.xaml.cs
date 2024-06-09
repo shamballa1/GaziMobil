@@ -52,8 +52,12 @@ namespace gazimobil
 
                     string temperature = xmlDoc.Root.Element("temperature").Attribute("value").Value;
                     string weatherDescription = xmlDoc.Root.Element("weather").Attribute("value").Value;
+                    string icon = xmlDoc.Root.Element("weather").Attribute("icon").Value;
+                    string iconUrl = $"https://openweathermap.org/img/wn/{icon}@2x.png";
 
-                    WeatherLabel.Text = $"ANKARA: {weatherDescription}, Sıcaklık: {temperature}°C";
+                    WeatherLabel.Text = $"{weatherDescription}";
+                    WeatherLabel2.Text = $"  {temperature}°C";
+                    WeatherIcon.Source = ImageSource.FromUri(new Uri(iconUrl));
                 }
                 else
                 {
