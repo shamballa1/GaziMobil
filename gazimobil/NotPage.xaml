@@ -4,9 +4,9 @@
 
     <StackLayout Padding="20">
         <Label Text="Ders Adı" />
-        <Entry x:Name="CourseNameEntry" Placeholder="Ders Adını Girin" />
+        <Entry x:Name="CourseNameEntry"/>
 
-        <Label Text="Kredi Sayısı" />
+        <Label Text="Kredi / AKTS" />
         <Picker x:Name="CreditPicker">
             <Picker.Items>
                 <x:String>0.5</x:String>
@@ -72,7 +72,7 @@
             </Picker.Items>
         </Picker>
 
-        <Label Text="Not" />
+        <Label Text="Harf Notu" />
         <Picker x:Name="GradePicker">
             <Picker.Items>
                 <x:String>AA</x:String>
