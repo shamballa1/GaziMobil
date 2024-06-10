@@ -69,6 +69,13 @@ namespace gazimobil
                 WeatherLabel.Text = $"Hata: {ex.Message}";
             }
         }
+        
+        //Ders Programı
+        private async void DersProgramiButtonClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new DersprogramiPage());
+        }
+
 
         //Duyurular
         private async Task OpenWebView(string url)

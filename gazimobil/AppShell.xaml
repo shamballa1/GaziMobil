@@ -30,7 +30,7 @@
     <FlyoutItem Title="Not Hesaplama">
         <ShellContent ContentTemplate="{DataTemplate local:NotPage}" />
     </FlyoutItem>
-    <FlyoutItem Title="Ders Programı">
-        <ShellContent ContentTemplate="{DataTemplate local:DPPage}" />
+    <FlyoutItem Title="Ders Programı" Icon="dersprogrami.png">
+        <ShellContent ContentTemplate="{DataTemplate local:DersprogramiPage}" />
     </FlyoutItem>
 </Shell>

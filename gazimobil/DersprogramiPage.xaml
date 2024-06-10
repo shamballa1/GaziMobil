@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="gazimobil.DersprogramiPage"
+             Title="Ders Programı">
+
+
+    <Grid>
+        <!-- Main Schedule Table -->
+        <TableView x:Name="ScheduleTable" Intent="Menu" BackgroundColor="Grey">
+            <TableRoot x:Name="ScheduleTableRoot">
+                <TableSection Title="Pazartesi" TextColor="DarkBlue">
+                    <TextCell Text="08:30 - 09:20"
+                               Detail="Math"                               
+                               TextColor="DarkBlue"
+                               DetailColor="DarkBlue"/>
+                    <TextCell Text="09:30 - 10:20"
+                               Detail="English"
+                               TextColor="DarkBlue"
+                               DetailColor="DarkBlue"/>
+                    <TextCell Text="10:30 - 11:20"
+                               Detail="Computer Science"
+                               TextColor="DarkBlue"
+                               DetailColor="DarkBlue"/>
+                </TableSection>
+                
+            </TableRoot>
+        </TableView>
+
+        <!-- Floating Action Button -->
+        <Button x:Name="FabButton"
+                Text="+"
+                FontAttributes="Bold"
+                WidthRequest="60"
+                HeightRequest="60"
+                CornerRadius="30"
+                BackgroundColor="DarkBlue"
+                TextColor="White"
+                FontSize="Large"
+                HorizontalOptions="End"
+                VerticalOptions="End"
+                Margin="20"
+                Clicked="OnFabButtonClicked" />
+
+        <!-- Add Lesson Form -->
+        <AbsoluteLayout IsVisible="False"
+                        x:Name="AddLessonFrame"
+                        BackgroundColor="LightGray"
+                        Padding="10"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                        WidthRequest="300"
+                        AbsoluteLayout.LayoutBounds="10,10" AbsoluteLayout.LayoutFlags="None">
+
+
+            <StackLayout AbsoluteLayout.LayoutBounds="0.5, 0.5, 1, 0.5" AbsoluteLayout.LayoutFlags="All">
+                <Label Text="Ders Ekle" 
+                       FontSize="Large"
+                       HorizontalOptions="Center"
+                       TextColor="DarkBlue"/>
+                <Picker x:Name="DayPicker" Title="Gün Seçin" TitleColor="DarkBlue" />
+                
+                <Picker x:Name="TimePicker" Title="Saat Seçin" TitleColor="DarkBlue" />
+                <Entry x:Name="SubjectEntry" Placeholder="Ders (Örn: Matematik)" />
+                <Button Text="Ekle" 
+                        TextColor="White" 
+                        BackgroundColor="DarkBlue" 
+                        Clicked="OnAddButtonClicked" 
+                        WidthRequest="100" 
+                        HeightRequest="40" 
+                        />
+            </StackLayout>
+
+            <!-- Close Button -->
+            <Button Text="X"
+                    FontAttributes="Bold"
+                    WidthRequest="40"
+                    HeightRequest="40"
+                    CornerRadius="40"
+                    BackgroundColor="DarkBlue"
+                    TextColor="White"
+                    AbsoluteLayout.LayoutBounds="1, 0, AutoSize, AutoSize"
+                    AbsoluteLayout.LayoutFlags="PositionProportional"
+                    Clicked="OnCloseButtonClicked" />
+        </AbsoluteLayout>
+    </Grid>
+</ContentPage>
