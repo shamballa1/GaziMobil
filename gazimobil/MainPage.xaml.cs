@@ -31,7 +31,7 @@ namespace gazimobil
             this.BindingContext = this;
             currentDate = DateTime.Now;
             LoadDuyurular();
-            LoadMenu(currentDate);
+            MenuYukle(currentDate);
             LoadWeatherData();
         }
         //Hava Durumu
@@ -56,7 +56,7 @@ namespace gazimobil
                     string iconUrl = $"https://openweathermap.org/img/wn/{icon}@2x.png";
 
                     WeatherLabel.Text = $"{weatherDescription}";
-                    WeatherLabel2.Text = $"  {temperature}°C";
+                    WeatherLabel2.Text = $"{temperature}°C";
                     WeatherIcon.Source = ImageSource.FromUri(new Uri(iconUrl));
                 }
                 else
@@ -170,11 +170,11 @@ namespace gazimobil
         }
 
         //YEMEK LİSTESİ 
-        private async void LoadMenu(DateTime date)
+        private async void MenuYukle(DateTime date)
         {
             try
             {
-                var menu = await BugununMenusuAsync(date);
+                var menu = await BugununMenusu(date);
                 BugununMenusuLabel.Text = menu;
                 YemekhaneTarihLabel.Text = $"Günün Menüsü\n{date.ToString("dd.MM.yyyy dddd", new CultureInfo("tr-TR"))}";
             }
@@ -185,9 +185,26 @@ namespace gazimobil
             }
         }
 
-        public async Task<string> BugununMenusuAsync(DateTime date)
+        public async Task<string> BugununMenusu(DateTime date)
         {
+            string url = "https://drive.google.com/uc?export=download&id=1w4YCzs8drQPXyS1PzH11gPYTfrvbLv1H";
             string dosyaYolu = Path.Combine(AppContext.BaseDirectory, "Resources", "YemekhaneMenusu.txt");
+
+            using (var client = new HttpClient())
+            {
+                var response = await client.GetAsync(url);
+                if (response.IsSuccessStatusCode)
+                {
+                    var fileContent = await response.Content.ReadAsByteArrayAsync();
+                    Directory.CreateDirectory(Path.GetDirectoryName(dosyaYolu));
+                    await File.WriteAllBytesAsync(dosyaYolu, fileContent);
+                }
+                else
+                {
+                    throw new Exception("Dosya indirilemedi.");
+                }
+            }
+
             string bugun = date.ToString("dd.MM.yyyy dddd", new CultureInfo("tr-TR"));
 
             if (!File.Exists(dosyaYolu))
@@ -249,13 +266,13 @@ namespace gazimobil
         private void OnSwipeRight(object sender, EventArgs e)
         {
             currentDate = currentDate.AddDays(-1);
-            LoadMenu(currentDate);
+            MenuYukle(currentDate);
         }
 
         private void OnSwipeLeft(object sender, EventArgs e)
         {
             currentDate = currentDate.AddDays(1);
-            LoadMenu(currentDate);
+            MenuYukle(currentDate);
         }
 
         private void OnPreviousPageButtonClicked(object sender, EventArgs e)
