@@ -2,11 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="gazimobil.AkademikTakvimPage">
-    <StackLayout BackgroundColor="White">
-        <Label Text="Akademik Takvim Sayfasıdır" 
-               TextColor="#1b3e75"
-               VerticalOptions="CenterAndExpand" 
-               HorizontalOptions="CenterAndExpand" />
-        <Button Text="Akademik Takvimi Görüntüle" Clicked="AkademikTakvimButtonClicked" />
-    </StackLayout>
+    <ContentPage.Content>
+        <WebView x:Name="pdfWebView" />
+    </ContentPage.Content>
 </ContentPage>
