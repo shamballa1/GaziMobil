@@ -1,108 +1,104 @@
 ﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="gazimobil.NotPage">
-
+    <ScrollView>
     <StackLayout Padding="20">
-        <Label Text="Ders Adı" />
-        <Entry x:Name="CourseNameEntry"/>
-
-        <Label Text="Kredi / AKTS" />
-        <Picker x:Name="CreditPicker">
+        <Label Text="Not Türünü Seçin" />
+        <Picker x:Name="CalculationTypePicker" SelectedIndexChanged="OnCalculationTypeChanged">
             <Picker.Items>
-                <x:String>0.5</x:String>
-                <x:String>1.0</x:String>
-                <x:String>1.5</x:String>
-                <x:String>2.0</x:String>
-                <x:String>2.5</x:String>
-                <x:String>3.0</x:String>
-                <x:String>3.5</x:String>
-                <x:String>4.0</x:String>
-                <x:String>4.5</x:String>
-                <x:String>5.0</x:String>
-                <x:String>5.5</x:String>
-                <x:String>6.0</x:String>
-                <x:String>6.5</x:String>
-                <x:String>7.0</x:String>
-                <x:String>7.5</x:String>
-                <x:String>8.0</x:String>
-                <x:String>8.5</x:String>
-                <x:String>9.0</x:String>
-                <x:String>9.5</x:String>
-                <x:String>10.0</x:String>
-                <x:String>10.5</x:String>
-                <x:String>11.0</x:String>
-                <x:String>11.5</x:String>
-                <x:String>12.0</x:String>
-                <x:String>12.5</x:String>
-                <x:String>13.0</x:String>
-                <x:String>13.5</x:String>
-                <x:String>14.0</x:String>
-                <x:String>14.5</x:String>
-                <x:String>15.0</x:String>
-                <x:String>15.5</x:String>
-                <x:String>16.0</x:String>
-                <x:String>16.5</x:String>
-                <x:String>17.0</x:String>
-                <x:String>17.5</x:String>
-                <x:String>18.0</x:String>
-                <x:String>18.5</x:String>
-                <x:String>19.0</x:String>
-                <x:String>19.5</x:String>
-                <x:String>20.0</x:String>
-                <x:String>20.5</x:String>
-                <x:String>21.0</x:String>
-                <x:String>21.5</x:String>
-                <x:String>22.0</x:String>
-                <x:String>22.5</x:String>
-                <x:String>23.0</x:String>
-                <x:String>23.5</x:String>
-                <x:String>24.0</x:String>
-                <x:String>24.5</x:String>
-                <x:String>25.0</x:String>
-                <x:String>25.5</x:String>
-                <x:String>26.0</x:String>
-                <x:String>26.5</x:String>
-                <x:String>27.0</x:String>
-                <x:String>27.5</x:String>
-                <x:String>28.0</x:String>
-                <x:String>28.5</x:String>
-                <x:String>29.0</x:String>
-                <x:String>29.5</x:String>
-                <x:String>30.0</x:String>
+                <x:String>Dönemlik Ortalama</x:String>
+                <x:String>Genel Ortalama</x:String>
             </Picker.Items>
         </Picker>
 
-        <Label Text="Harf Notu" />
-        <Picker x:Name="GradePicker">
-            <Picker.Items>
-                <x:String>AA</x:String>
-                <x:String>BA</x:String>
-                <x:String>BB</x:String>
-                <x:String>CB</x:String>
-                <x:String>CC</x:String>
-                <x:String>DC</x:String>
-                <x:String>DD</x:String>
-                <x:String>FD</x:String>
-                <x:String>FF</x:String>
-            </Picker.Items>
-        </Picker>
+        <StackLayout x:Name="SemesterInputs" IsVisible="true">
+            <Label Text="Ders Adı" />
+            <Entry x:Name="CourseNameEntry"/>
 
-        <Button Text="Ekle" Clicked="OnAddCourseClicked" />
+            <Label Text="Kredi / AKTS" />
+            <Picker x:Name="CreditPicker">
+                <Picker.Items>
+                    <x:String>1.0</x:String>
+                    <x:String>2.0</x:String>
+                    <x:String>3.0</x:String>
+                    <x:String>4.0</x:String>
+                    <x:String>5.0</x:String>
+                    <x:String>6.0</x:String>
+                    <x:String>7.0</x:String>
+                    <x:String>8.0</x:String>
+                    <x:String>9.0</x:String>
+                    <x:String>10.0</x:String>
+                    <x:String>11.0</x:String>
+                    <x:String>12.0</x:String>
+                    <x:String>13.0</x:String>
+                    <x:String>14.0</x:String>
+                    <x:String>15.0</x:String>
+                    <x:String>16.0</x:String>
+                    <x:String>17.0</x:String>
+                    <x:String>18.0</x:String>
+                    <x:String>19.0</x:String>
+                    <x:String>20.0</x:String>
+                    <x:String>21.0</x:String>
+                    <x:String>22.0</x:String>
+                    <x:String>23.0</x:String>
+                    <x:String>24.0</x:String>
+                    <x:String>25.0</x:String>
+                    <x:String>26.0</x:String>
+                    <x:String>27.0</x:String>
+                    <x:String>28.0</x:String>
+                    <x:String>29.0</x:String>
+                    <x:String>30.0</x:String>
+                </Picker.Items>
+            </Picker>
 
-        <Label Text="Dönem Ortalaması" />
-        <Label x:Name="SemesterAverageLabel" Text="0" />
+            <Label Text="Harf Notu" />
+            <Picker x:Name="GradePicker">
+                <Picker.Items>
+                    <x:String>AA</x:String>
+                    <x:String>BA</x:String>
+                    <x:String>BB</x:String>
+                    <x:String>CB</x:String>
+                    <x:String>CC</x:String>
+                    <x:String>DC</x:String>
+                    <x:String>DD</x:String>
+                    <x:String>FD</x:String>
+                    <x:String>FF</x:String>
+                </Picker.Items>
+            </Picker>
 
-        <ListView x:Name="CoursesListView">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <TextCell Text="{Binding}">
-                        <TextCell.ContextActions>
-                            <MenuItem Text="Sil" Clicked="OnDeleteCourse" CommandParameter="{Binding}" />
-                        </TextCell.ContextActions>
-                    </TextCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+                <Button Text="Ekle" Clicked="OnAddCourseClicked" BackgroundColor="#1B3E75" />
+
+            <Label Text="Dönem Ortalaması" />
+            <Label x:Name="SemesterAverageLabel" Text="0" />
+
+            <ListView x:Name="CoursesListView">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding}">
+                            <TextCell.ContextActions>
+                                <MenuItem Text="Sil" Clicked="OnDeleteCourse" CommandParameter="{Binding}" />
+                            </TextCell.ContextActions>
+                        </TextCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+
+        <StackLayout x:Name="BothInputs" IsVisible="false">
+            <Label Text="Mevcut Kredi" />
+            <Entry x:Name="BothCreditsEntry" Keyboard="Numeric" />
+
+            <Label Text="Mevcut Ortalama" />
+            <Entry x:Name="BothGpaEntry" Keyboard="Numeric" />
+
+                <Button Text="Hesapla" Clicked="OnCalculateBothGpaClicked" BackgroundColor="#1B3E75" />
+
+            <Label Text="Dönem Ortalaması" />
+            <Label x:Name="BothSemesterAverageLabel" Text="0" />
+
+            <Label Text="Genel Not Ortalaması" />
+            <Label x:Name="BothOverallGpaLabel" Text="0" />
+        </StackLayout>
     </StackLayout>
-
+    </ScrollView>
 </ContentPage>
