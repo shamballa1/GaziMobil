@@ -1,41 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="gazimobil.YemekhanePage">
-
-    <StackLayout Padding="20" BackgroundColor="White">
-        <Label Text="Günün Menüsü"
-               FontSize="24"
-               HorizontalOptions="Center"
-               VerticalOptions="Start"
-               TextColor="#1B3E75"
-               FontAttributes="Bold" />
-
-        <Label x:Name="TarihLabel"
-               FontSize="22"
-               HorizontalOptions="Center"
-               VerticalOptions="Start"
-               TextColor="#1B3E75"
-               FontAttributes="Bold" />
-
-        <Grid HeightRequest="3">
-            <BoxView BackgroundColor="#1B3E75" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Opacity="0.9"/>
-        </Grid>
-
-        <ScrollView>
-            <StackLayout>
-                <Label x:Name="BugununMenusuLabel"
-                       TextColor="#1B3E75"
-                       FontSize="18" 
-                       HorizontalOptions="Center" 
-                       VerticalOptions="StartAndExpand" />
-            </StackLayout>
-        </ScrollView>
-
-        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="EndAndExpand">
-            <Button Text="Önceki" BackgroundColor="#1B3E75" TextColor="White" Clicked="OnOncekiButtonClicked" />
-            <Button Text="Bugün" BackgroundColor="#1B3E75" TextColor="White" Clicked="BugunButtonClicked" />
-            <Button Text="Sonraki" BackgroundColor="#1B3E75" TextColor="White" Clicked="OnSonrakiButtonClicked" />
-        </StackLayout>
-    </StackLayout>
+             x:Class="gazimobil.YemekhanePage"
+             Title="Yemek Listesi">
+    <ContentPage.Content>
+        <WebView x:Name="yemekhaneWebView"
+                 VerticalOptions="FillAndExpand"
+                 HorizontalOptions="FillAndExpand" />
+    </ContentPage.Content>
 </ContentPage>
