@@ -17,7 +17,13 @@ namespace gazimobil
             "12.30 - 13.20",
             "13.30 - 14.20",
             "14.30 - 15.20",
-            "15.30 - 16.20"
+            "15.30 - 16.20",
+            "16.30 - 17.20",
+            "17.30 - 18.20",
+            "18.30 - 19.20",
+            "19.30 - 20.20",
+            "20.30 - 21.20",
+            "21.30 - 22.20"
         };
 
         private readonly List<string> _daysOfWeek = new List<string>
@@ -29,7 +35,6 @@ namespace gazimobil
             "Cuma"
         };
 
-
         public DersprogramiPage()
         {
             InitializeComponent();
@@ -37,6 +42,7 @@ namespace gazimobil
             TimePicker.ItemsSource = _timeSlots; // Picker'a saat aralýklarýný ekleme
             InitializePickers(); // Günleri Picker'a eklemek için InitializePickers metodunu çaðýrýn
         }
+
         private void InitializePickers()
         {
             // Günlerin Picker'a eklenmesi
@@ -101,7 +107,13 @@ namespace gazimobil
         {
             ScheduleTableRoot.Clear();
 
-            foreach (var group in _dersList.GroupBy(d => d.Day))
+            // Dersleri kronolojik sýraya göre sýrala
+            var orderedDersList = _dersList
+                .OrderBy(d => _daysOfWeek.IndexOf(d.Day))
+                .ThenBy(d => _timeSlots.IndexOf(d.Time))
+                .ToList();
+
+            foreach (var group in orderedDersList.GroupBy(d => d.Day))
             {
                 var section = new TableSection(group.Key);
 
@@ -111,7 +123,18 @@ namespace gazimobil
                     {
                         Text = ders.Time,
                         Detail = ders.Subject,
-                        
+                        TextColor = Microsoft.Maui.Graphics.Colors.Black,
+                        DetailColor = Microsoft.Maui.Graphics.Colors.Black
+                    });
+
+                    // Çizgi eklemek için bir ViewCell ekle
+                    section.Add(new ViewCell
+                    {
+                        View = new BoxView
+                        {
+                            HeightRequest = 1,
+                            BackgroundColor = Microsoft.Maui.Graphics.Colors.LightGray
+                        }
                     });
                 }
 

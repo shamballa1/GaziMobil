@@ -5,25 +5,81 @@
              Title="Ders Programı">
 
 
-    <Grid>
+    <Grid >
         <!-- Main Schedule Table -->
-        <TableView x:Name="ScheduleTable" Intent="Menu" BackgroundColor="Grey">
+        <TableView x:Name="ScheduleTable" Intent="Menu" BackgroundColor="White">
             <TableRoot x:Name="ScheduleTableRoot">
-                <TableSection Title="Pazartesi" TextColor="DarkBlue">
+                <TableSection Title="Pazartesi" TextColor="#1B3E75">
                     <TextCell Text="08:30 - 09:20"
                                Detail="Math"                               
-                               TextColor="DarkBlue"
-                               DetailColor="DarkBlue"/>
+                               TextColor="#1B3E75"
+                               DetailColor="#1B3E75"/>
                     <TextCell Text="09:30 - 10:20"
                                Detail="English"
-                               TextColor="DarkBlue"
-                               DetailColor="DarkBlue"/>
+                               TextColor="#1B3E75"
+                               DetailColor="#1B3E75"/>
                     <TextCell Text="10:30 - 11:20"
                                Detail="Computer Science"
-                               TextColor="DarkBlue"
-                               DetailColor="DarkBlue"/>
+                               TextColor="#1B3E75"
+                               DetailColor="#1B3E75"/>
                 </TableSection>
-                
+                <TableSection Title="Pazartesi" TextColor="#1B3E75">
+                    <TextCell Text="08:30 - 09:20"
+               Detail="Math"                               
+               TextColor="#1B3E75"
+               DetailColor="#1B3E75"/>
+                    <TextCell Text="09:30 - 10:20"
+               Detail="English"
+               TextColor="#1B3E75"
+               DetailColor="#1B3E75"/>
+                    <TextCell Text="10:30 - 11:20"
+               Detail="Computer Science"
+               TextColor="#1B3E75"
+               DetailColor="#1B3E75"/>
+                </TableSection>
+                <TableSection Title="Pazartesi" TextColor="#1B3E75">
+                    <TextCell Text="08:30 - 09:20"
+               Detail="Math"                               
+               TextColor="#1B3E75"
+               DetailColor="#1B3E75"/>
+                    <TextCell Text="09:30 - 10:20"
+               Detail="English"
+               TextColor="#1B3E75"
+               DetailColor="#1B3E75"/>
+                    <TextCell Text="10:30 - 11:20"
+               Detail="Computer Science"
+               TextColor="#1B3E75"
+               DetailColor="#1B3E75"/>
+                </TableSection>
+                <TableSection Title="Pazartesi" TextColor="#1B3E75">
+                    <TextCell Text="08:30 - 09:20"
+               Detail="Math"                               
+               TextColor="#1B3E75"
+               DetailColor="#1B3E75"/>
+                    <TextCell Text="09:30 - 10:20"
+               Detail="English"
+               TextColor="#1B3E75"
+               DetailColor="#1B3E75"/>
+                    <TextCell Text="10:30 - 11:20"
+               Detail="Computer Science"
+               TextColor="#1B3E75"
+               DetailColor="#1B3E75"/>
+                </TableSection>
+                <TableSection Title="Pazartesi" TextColor="#1B3E75">
+                    <TextCell Text="08:30 - 09:20"
+               Detail="Math"                               
+               TextColor="#1B3E75"
+               DetailColor="#1B3E75"/>
+                    <TextCell Text="09:30 - 10:20"
+               Detail="English"
+               TextColor="#1B3E75"
+               DetailColor="#1B3E75"/>
+                    <TextCell Text="10:30 - 11:20"
+               Detail="Computer Science"
+               TextColor="#1B3E75"
+               DetailColor="#1B3E75"/>
+                </TableSection>
+
             </TableRoot>
         </TableView>
 
@@ -34,7 +90,7 @@
                 WidthRequest="60"
                 HeightRequest="60"
                 CornerRadius="30"
-                BackgroundColor="DarkBlue"
+                BackgroundColor="#1B3E75"
                 TextColor="White"
                 FontSize="Large"
                 HorizontalOptions="End"
@@ -45,7 +101,7 @@
         <!-- Add Lesson Form -->
         <AbsoluteLayout IsVisible="False"
                         x:Name="AddLessonFrame"
-                        BackgroundColor="LightGray"
+                        BackgroundColor="#1B3E75"
                         Padding="10"
                         VerticalOptions="Center"
                         HorizontalOptions="Center"
@@ -53,18 +109,18 @@
                         AbsoluteLayout.LayoutBounds="10,10" AbsoluteLayout.LayoutFlags="None">
 
 
-            <StackLayout AbsoluteLayout.LayoutBounds="0.5, 0.5, 1, 0.5" AbsoluteLayout.LayoutFlags="All">
+            <StackLayout AbsoluteLayout.LayoutBounds="1,1,1,1" AbsoluteLayout.LayoutFlags="All">
                 <Label Text="Ders Ekle" 
                        FontSize="Large"
                        HorizontalOptions="Center"
-                       TextColor="DarkBlue"/>
-                <Picker x:Name="DayPicker" Title="Gün Seçin" TitleColor="DarkBlue" />
-                
-                <Picker x:Name="TimePicker" Title="Saat Seçin" TitleColor="DarkBlue" />
-                <Entry x:Name="SubjectEntry" Placeholder="Ders (Örn: Matematik)" />
+                       TextColor="White"/>
+                <Picker x:Name="DayPicker" Title="Gün Seçin" TitleColor="LightGrey" />
+
+                <Picker x:Name="TimePicker" Title="Saat Seçin" TitleColor="LightGrey" />
+                <Entry x:Name="SubjectEntry" Placeholder="Ders (Örn: Matematik)" PlaceholderColor="LightGray" />
                 <Button Text="Ekle" 
-                        TextColor="White" 
-                        BackgroundColor="DarkBlue" 
+                        TextColor="#1B3E75" 
+                        BackgroundColor="LightGray" 
                         Clicked="OnAddButtonClicked" 
                         WidthRequest="100" 
                         HeightRequest="40" 
@@ -77,11 +133,15 @@
                     WidthRequest="40"
                     HeightRequest="40"
                     CornerRadius="40"
-                    BackgroundColor="DarkBlue"
-                    TextColor="White"
+                    BackgroundColor="LightGray"
+                    TextColor="#1B3E75"
                     AbsoluteLayout.LayoutBounds="1, 0, AutoSize, AutoSize"
                     AbsoluteLayout.LayoutFlags="PositionProportional"
                     Clicked="OnCloseButtonClicked" />
         </AbsoluteLayout>
     </Grid>
 </ContentPage>
+
+    
+    
+    
