@@ -8,12 +8,12 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <ScrollView x:Name="scrollView"
+        <ScrollView x:Name="kaydirmaGorunumu"
                     Orientation="Both"
                     VerticalOptions="FillAndExpand"
                     HorizontalOptions="FillAndExpand"
                     Grid.Row="0">
-            <Image x:Name="mapImage"
+            <Image x:Name="haritaResmi"
                    Source="merkez.png"
                    Aspect="AspectFit">
                 <Image.GestureRecognizers>
@@ -24,7 +24,7 @@
         </ScrollView>
 
         <StackLayout BackgroundColor="White" Grid.Row="1">
-            <Button Text="Harita Görüntüle" Clicked="HaritaButtonClicked" />
+            <Button Text="Haritayı Görüntüle" Clicked="HaritaButtonClicked" />
         </StackLayout>
     </Grid>
 </ContentPage>
