@@ -19,7 +19,7 @@ namespace gazimobil
 
     public partial class DuyurularPage : ContentPage
     {
-        private int currentPage = 1;
+        private int ÞuankiSayfa = 1;
 
         public ICommand OpenWebViewCommand { get; private set; }
 
@@ -28,14 +28,14 @@ namespace gazimobil
             InitializeComponent();
             BindingContext = this; // BindingContext'i ayarladýk
             OpenWebViewCommand = new Command<string>(async (url) => await OpenWebView(url));
-            LoadDuyurular();
-            UpdatePageLabels();
+            DuyuruYükle();
+            SayfaEtiketleriniGüncelle();
         }
 
-        private async void LoadDuyurular(string searchString = "", int page = 1)
+        private async void DuyuruYükle(string searchString = "", int page = 1)
         {
             var url = $"https://gazi.edu.tr/view/announcement-list?id={page}&type=1&SearchString={searchString}&dates=&date=";
-            var duyurular = await GetDuyurularAsync(url);
+            var duyurular = await DuyurularýGetir(url);
             if (duyurular.Count > 0)
             {
                 DuyurularCollectionView.ItemsSource = duyurular;
@@ -46,46 +46,46 @@ namespace gazimobil
             }
         }
 
-        private void OnSearchButtonClicked(object sender, EventArgs e)
+        private void AramaButonu(object sender, EventArgs e)
         {
             var searchString = SearchEntry.Text;
-            currentPage = 1; // Arama yapýldýðýnda sayfa numarasýný sýfýrlýyoruz
-            LoadDuyurular(searchString, currentPage);
-            UpdatePageLabels();
+            ÞuankiSayfa = 1; // Arama yapýldýðýnda sayfa numarasýný sýfýrlýyoruz
+            DuyuruYükle(searchString, ÞuankiSayfa);
+            SayfaEtiketleriniGüncelle();
         }
 
-        private void OnClearSearchButtonClicked(object sender, EventArgs e)
+        private void AramayýTemizleButonu(object sender, EventArgs e)
         {
             SearchEntry.Text = string.Empty;
-            currentPage = 1; // Arama sýfýrlandýðýnda sayfa numarasýný sýfýrlýyoruz
-            LoadDuyurular(page: currentPage);
-            UpdatePageLabels();
+            ÞuankiSayfa = 1; // Arama sýfýrlandýðýnda sayfa numarasýný sýfýrlýyoruz
+            DuyuruYükle(page: ÞuankiSayfa);
+            SayfaEtiketleriniGüncelle();
         }
 
-        private void OnPreviousPageButtonClicked(object sender, EventArgs e)
+        private void OncekiButonuTýklandýðýnda(object sender, EventArgs e)
         {
-            if (currentPage > 1)
+            if (ÞuankiSayfa > 1)
             {
-                currentPage--;
-                LoadDuyurular(SearchEntry.Text, currentPage);
-                UpdatePageLabels();
+                ÞuankiSayfa--;
+                DuyuruYükle(SearchEntry.Text, ÞuankiSayfa);
+                SayfaEtiketleriniGüncelle();
             }
         }
 
-        private void OnNextPageButtonClicked(object sender, EventArgs e)
+        private void SonrakiButonuTýklandýðýnda(object sender, EventArgs e)
         {
-            currentPage++;
-            LoadDuyurular(SearchEntry.Text, currentPage);
-            UpdatePageLabels();
+            ÞuankiSayfa++;
+            DuyuruYükle(SearchEntry.Text, ÞuankiSayfa);
+            SayfaEtiketleriniGüncelle();
         }
 
-        private void UpdatePageLabels()
+        private void SayfaEtiketleriniGüncelle()
         {
-            PageLabel1.Text = (currentPage - 1).ToString();
-            PageLabel2.Text = currentPage.ToString();
-            PageLabel3.Text = (currentPage + 1).ToString();
+            PageLabel1.Text = (ÞuankiSayfa - 1).ToString();
+            PageLabel2.Text = ÞuankiSayfa.ToString();
+            PageLabel3.Text = (ÞuankiSayfa + 1).ToString();
 
-            PageLabel1.IsVisible = currentPage > 1;
+            PageLabel1.IsVisible = ÞuankiSayfa > 1;
             PageLabel1.TextColor = Colors.Blue;
             PageLabel2.TextColor = Colors.Red;
             PageLabel3.TextColor = Colors.Blue;
@@ -96,7 +96,7 @@ namespace gazimobil
             await Navigation.PushAsync(new WebViewPage(url));
         }
 
-        private async Task<List<DuyuruModel>> GetDuyurularAsync(string url)
+        private async Task<List<DuyuruModel>> DuyurularýGetir(string url)
         {
             List<DuyuruModel> duyurular = new List<DuyuruModel>();
 

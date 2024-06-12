@@ -25,20 +25,11 @@
                     <BoxView BackgroundColor="#1B3E75" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Opacity="0.9"/>
                 </Grid>
 
-                <!-- Hava Durumu Bölümü -->
-                <Frame CornerRadius="10" BackgroundColor="#1B3E75" Padding="10" Margin="3,5,3,0">
-                    <HorizontalStackLayout HorizontalOptions="Center">
-                        <Label Text="ANKARA :  " FontSize="24" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"/>
-                        <VerticalStackLayout HorizontalOptions="Center">
-                            <Image x:Name="WeatherIcon" WidthRequest="50" HeightRequest="50" HorizontalOptions="Center"/>
-                            <Label x:Name="WeatherLabel" FontSize="24" TextColor="White" HorizontalOptions="Center"/>
-                        </VerticalStackLayout>
-                        <Label x:Name="WeatherLabel2" FontSize="24" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"/>
-                    </HorizontalStackLayout>
-                </Frame>
+                
+                
                 
 
-                <!-- Yemek listesi ve DP Bölümü -->
+                <!-- Yemek listesi ve Hava Durumu Bölümü -->
                 <Grid ColumnDefinitions="*,*">
                     <!-- Yemek listesi Bölümü -->
                     <Frame Grid.Column="0" CornerRadius="10" BackgroundColor="white" Padding="10" Margin="3,6,0,0">
@@ -47,14 +38,19 @@
                             <Label x:Name="BugununMenusuLabel" TextColor="#1B3E75" FontSize="18" HorizontalOptions="Center"/>
                         </StackLayout>
                         <ContentView.GestureRecognizers>
-                            <SwipeGestureRecognizer Direction="Left" Swiped="OnSwipeLeft"/>
-                            <SwipeGestureRecognizer Direction="Right" Swiped="OnSwipeRight"/>
+                            <SwipeGestureRecognizer Direction="Left" Swiped="SolaKaydir"/>
+                            <SwipeGestureRecognizer Direction="Right" Swiped="SağaKaydir"/>
                         </ContentView.GestureRecognizers>
                     </Frame>
 
-                    <!-- D.P. Bölümü -->
+                    <!-- Hava Durumu Bölümü -->
                     <Frame Grid.Column="1" CornerRadius="10" BackgroundColor="White" Padding="10" Margin="5,6,3,0">
-                        <Label Text="D.P." FontSize="24" TextColor="#1B3E75" HorizontalOptions="Center"/>
+                        <VerticalStackLayout HorizontalOptions="Center"  VerticalOptions="Center">
+                            <Label Text="ANKARA" FontSize="24" TextColor="#1B3E75"/>
+                             <Image x:Name="WeatherIcon" WidthRequest="50" HeightRequest="50"/>
+                                <Label x:Name="WeatherLabel" FontSize="24" TextColor="#1B3E75" />
+                            <Label x:Name="WeatherLabel2" FontSize="24" TextColor="#1B3E75" />
+                        </VerticalStackLayout>
                     </Frame>
                 </Grid>
 
@@ -83,11 +79,11 @@
 
 
                 <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="10" Margin="0,-7,0,0">
-                    <Button Text="Önceki" Clicked="OnPreviousPageButtonClicked" BackgroundColor="#1b3e75" TextColor="White" />
+                    <Button Text="Önceki" Clicked="OncekiButonuTıklandığında" BackgroundColor="#1b3e75" TextColor="White" />
                     <Label x:Name="PageLabel1" FontSize="18" TextColor="#1b3e75" VerticalOptions="Center" IsVisible="False" />
                     <Label x:Name="PageLabel2" FontSize="18" TextColor="#1b3e75" VerticalOptions="Center" />
                     <Label x:Name="PageLabel3" FontSize="18" TextColor="#1b3e75" VerticalOptions="Center" />
-                    <Button Text="Sonraki" Clicked="OnNextPageButtonClicked" BackgroundColor="#1b3e75" TextColor="White" />
+                    <Button Text="Sonraki" Clicked="SonrakiButonuTıklandığında" BackgroundColor="#1b3e75" TextColor="White" />
                 </StackLayout>
 
 

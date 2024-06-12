@@ -17,8 +17,8 @@
                     <Entry x:Name="SearchEntry" Placeholder="Arama yapmak için tıklayınız." FontSize="18" TextColor="Black" BackgroundColor="White" />
 
                     <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Spacing="20" Margin="10">
-                        <Button Text="Ara" Clicked="OnSearchButtonClicked" BackgroundColor="#1b3e75" TextColor="White" Padding="10,5" />
-                        <Button Text="Aramayı Sıfırla" Clicked="OnClearSearchButtonClicked" BackgroundColor="#1b3e75" TextColor="White" Padding="10,5" />
+                        <Button Text="Ara" Clicked="AramaButonu" BackgroundColor="#1b3e75" TextColor="White" Padding="10,5" />
+                        <Button Text="Aramayı Sıfırla" Clicked="AramayıTemizleButonu" BackgroundColor="#1b3e75" TextColor="White" Padding="10,5" />
                     </StackLayout>
                 </StackLayout>
             </Frame>
@@ -41,11 +41,11 @@
             </CollectionView>
 
             <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Spacing="10" Margin="20">
-                <Button Text="Önceki" Clicked="OnPreviousPageButtonClicked" BackgroundColor="#1b3e75" TextColor="White" Padding="10,5" />
+                <Button Text="Önceki" Clicked="OncekiButonuTıklandığında" BackgroundColor="#1b3e75" TextColor="White" Padding="10,5" />
                 <Label x:Name="PageLabel1" FontSize="18" TextColor="#1b3e75" VerticalOptions="Center" HorizontalOptions="Center" IsVisible="False" />
                 <Label x:Name="PageLabel2" FontSize="18" TextColor="#1b3e75" VerticalOptions="Center" HorizontalOptions="Center" />
                 <Label x:Name="PageLabel3" FontSize="18" TextColor="#1b3e75" VerticalOptions="Center" HorizontalOptions="Center" />
-                <Button Text="Sonraki" Clicked="OnNextPageButtonClicked" BackgroundColor="#1b3e75" TextColor="White" Padding="10,5" />
+                <Button Text="Sonraki" Clicked="SonrakiButonuTıklandığında" BackgroundColor="#1b3e75" TextColor="White" Padding="10,5" />
             </StackLayout>
         </StackLayout>
     </ScrollView>
