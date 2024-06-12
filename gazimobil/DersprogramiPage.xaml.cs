@@ -52,31 +52,31 @@ namespace gazimobil
             }
         }
 
-        private void OnFabButtonClicked(object sender, EventArgs e)
+        private void FabButonAtama(object sender, EventArgs e)
         {
             AddLessonFrame.IsVisible = true;
             FabButton.IsVisible = false;
         }
 
-        private void OnCloseButtonClicked(object sender, EventArgs e)
+        private void KapamaButonAtama(object sender, EventArgs e)
         {
             AddLessonFrame.IsVisible = false;
             FabButton.IsVisible = true;
         }
 
-        private void OnAddButtonClicked(object sender, EventArgs e)
+        private void EkleButonAtama(object sender, EventArgs e)
         {
-            string day = DayPicker.SelectedItem?.ToString();
-            string time = TimePicker.SelectedItem?.ToString();
+            string gun = DayPicker.SelectedItem?.ToString();
+            string saat = TimePicker.SelectedItem?.ToString();
             string subject = SubjectEntry.Text;
 
-            if (string.IsNullOrWhiteSpace(day) || !_daysOfWeek.Contains(day))
+            if (string.IsNullOrWhiteSpace(gun) || !_daysOfWeek.Contains(gun))
             {
                 DisplayAlert("Hata", "Geçersiz gün seçildi.", "Tamam");
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(time))
+            if (string.IsNullOrWhiteSpace(saat))
             {
                 DisplayAlert("Hata", "Lütfen bir saat aralýðý seçin.", "Tamam");
                 return;
@@ -90,8 +90,8 @@ namespace gazimobil
 
             var ders = new Ders
             {
-                Day = day,
-                Time = time,
+                Day = gun,
+                Time = saat,
                 Subject = subject
             };
 
@@ -108,12 +108,12 @@ namespace gazimobil
             ScheduleTableRoot.Clear();
 
             // Dersleri kronolojik sýraya göre sýrala
-            var orderedDersList = _dersList
+            var siraliList = _dersList
                 .OrderBy(d => _daysOfWeek.IndexOf(d.Day))
                 .ThenBy(d => _timeSlots.IndexOf(d.Time))
                 .ToList();
 
-            foreach (var group in orderedDersList.GroupBy(d => d.Day))
+            foreach (var group in siraliList.GroupBy(d => d.Day))
             {
                 var section = new TableSection(group.Key);
 

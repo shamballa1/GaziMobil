@@ -1,147 +1,180 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="gazimobil.DersprogramiPage"
-             Title="Ders Programı">
+<ContentPage
+    x:Class="gazimobil.DersprogramiPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Ders Programı">
 
 
-    <Grid >
-        <!-- Main Schedule Table -->
-        <TableView x:Name="ScheduleTable" Intent="Menu" BackgroundColor="White">
+    <Grid>
+        <!--  Main Schedule Table  -->
+        <TableView
+            x:Name="ScheduleTable"
+            BackgroundColor="White"
+            Intent="Menu">
             <TableRoot x:Name="ScheduleTableRoot">
                 <TableSection Title="Pazartesi" TextColor="#1B3E75">
-                    <TextCell Text="08:30 - 09:20"
-                               Detail="Math"                               
-                               TextColor="#1B3E75"
-                               DetailColor="#1B3E75"/>
-                    <TextCell Text="09:30 - 10:20"
-                               Detail="English"
-                               TextColor="#1B3E75"
-                               DetailColor="#1B3E75"/>
-                    <TextCell Text="10:30 - 11:20"
-                               Detail="Computer Science"
-                               TextColor="#1B3E75"
-                               DetailColor="#1B3E75"/>
+                    <TextCell
+                        Detail="Math"
+                        DetailColor="#1B3E75"
+                        Text="08:30 - 09:20"
+                        TextColor="#1B3E75" />
+                    <TextCell
+                        Detail="English"
+                        DetailColor="#1B3E75"
+                        Text="09:30 - 10:20"
+                        TextColor="#1B3E75" />
+                    <TextCell
+                        Detail="Computer Science"
+                        DetailColor="#1B3E75"
+                        Text="10:30 - 11:20"
+                        TextColor="#1B3E75" />
                 </TableSection>
                 <TableSection Title="Pazartesi" TextColor="#1B3E75">
-                    <TextCell Text="08:30 - 09:20"
-               Detail="Math"                               
-               TextColor="#1B3E75"
-               DetailColor="#1B3E75"/>
-                    <TextCell Text="09:30 - 10:20"
-               Detail="English"
-               TextColor="#1B3E75"
-               DetailColor="#1B3E75"/>
-                    <TextCell Text="10:30 - 11:20"
-               Detail="Computer Science"
-               TextColor="#1B3E75"
-               DetailColor="#1B3E75"/>
+                    <TextCell
+                        Detail="Math"
+                        DetailColor="#1B3E75"
+                        Text="08:30 - 09:20"
+                        TextColor="#1B3E75" />
+                    <TextCell
+                        Detail="English"
+                        DetailColor="#1B3E75"
+                        Text="09:30 - 10:20"
+                        TextColor="#1B3E75" />
+                    <TextCell
+                        Detail="Computer Science"
+                        DetailColor="#1B3E75"
+                        Text="10:30 - 11:20"
+                        TextColor="#1B3E75" />
                 </TableSection>
                 <TableSection Title="Pazartesi" TextColor="#1B3E75">
-                    <TextCell Text="08:30 - 09:20"
-               Detail="Math"                               
-               TextColor="#1B3E75"
-               DetailColor="#1B3E75"/>
-                    <TextCell Text="09:30 - 10:20"
-               Detail="English"
-               TextColor="#1B3E75"
-               DetailColor="#1B3E75"/>
-                    <TextCell Text="10:30 - 11:20"
-               Detail="Computer Science"
-               TextColor="#1B3E75"
-               DetailColor="#1B3E75"/>
+                    <TextCell
+                        Detail="Math"
+                        DetailColor="#1B3E75"
+                        Text="08:30 - 09:20"
+                        TextColor="#1B3E75" />
+                    <TextCell
+                        Detail="English"
+                        DetailColor="#1B3E75"
+                        Text="09:30 - 10:20"
+                        TextColor="#1B3E75" />
+                    <TextCell
+                        Detail="Computer Science"
+                        DetailColor="#1B3E75"
+                        Text="10:30 - 11:20"
+                        TextColor="#1B3E75" />
                 </TableSection>
                 <TableSection Title="Pazartesi" TextColor="#1B3E75">
-                    <TextCell Text="08:30 - 09:20"
-               Detail="Math"                               
-               TextColor="#1B3E75"
-               DetailColor="#1B3E75"/>
-                    <TextCell Text="09:30 - 10:20"
-               Detail="English"
-               TextColor="#1B3E75"
-               DetailColor="#1B3E75"/>
-                    <TextCell Text="10:30 - 11:20"
-               Detail="Computer Science"
-               TextColor="#1B3E75"
-               DetailColor="#1B3E75"/>
+                    <TextCell
+                        Detail="Math"
+                        DetailColor="#1B3E75"
+                        Text="08:30 - 09:20"
+                        TextColor="#1B3E75" />
+                    <TextCell
+                        Detail="English"
+                        DetailColor="#1B3E75"
+                        Text="09:30 - 10:20"
+                        TextColor="#1B3E75" />
+                    <TextCell
+                        Detail="Computer Science"
+                        DetailColor="#1B3E75"
+                        Text="10:30 - 11:20"
+                        TextColor="#1B3E75" />
                 </TableSection>
                 <TableSection Title="Pazartesi" TextColor="#1B3E75">
-                    <TextCell Text="08:30 - 09:20"
-               Detail="Math"                               
-               TextColor="#1B3E75"
-               DetailColor="#1B3E75"/>
-                    <TextCell Text="09:30 - 10:20"
-               Detail="English"
-               TextColor="#1B3E75"
-               DetailColor="#1B3E75"/>
-                    <TextCell Text="10:30 - 11:20"
-               Detail="Computer Science"
-               TextColor="#1B3E75"
-               DetailColor="#1B3E75"/>
+                    <TextCell
+                        Detail="Math"
+                        DetailColor="#1B3E75"
+                        Text="08:30 - 09:20"
+                        TextColor="#1B3E75" />
+                    <TextCell
+                        Detail="English"
+                        DetailColor="#1B3E75"
+                        Text="09:30 - 10:20"
+                        TextColor="#1B3E75" />
+                    <TextCell
+                        Detail="Computer Science"
+                        DetailColor="#1B3E75"
+                        Text="10:30 - 11:20"
+                        TextColor="#1B3E75" />
                 </TableSection>
 
             </TableRoot>
         </TableView>
 
-        <!-- Floating Action Button -->
-        <Button x:Name="FabButton"
-                Text="+"
-                FontAttributes="Bold"
-                WidthRequest="60"
-                HeightRequest="60"
-                CornerRadius="30"
-                BackgroundColor="#1B3E75"
-                TextColor="White"
-                FontSize="Large"
-                HorizontalOptions="End"
-                VerticalOptions="End"
-                Margin="20"
-                Clicked="OnFabButtonClicked" />
+        <!--  Floating Action Button  -->
+        <Button
+            x:Name="FabButton"
+            Margin="20"
+            BackgroundColor="#1B3E75"
+            Clicked="FabButonAtama"
+            CornerRadius="30"
+            FontAttributes="Bold"
+            FontSize="Large"
+            HeightRequest="60"
+            HorizontalOptions="End"
+            Text="+"
+            TextColor="White"
+            VerticalOptions="End"
+            WidthRequest="60" />
 
-        <!-- Add Lesson Form -->
-        <AbsoluteLayout IsVisible="False"
-                        x:Name="AddLessonFrame"
-                        BackgroundColor="#1B3E75"
-                        Padding="10"
-                        VerticalOptions="Center"
-                        HorizontalOptions="Center"
-                        WidthRequest="300"
-                        AbsoluteLayout.LayoutBounds="10,10" AbsoluteLayout.LayoutFlags="None">
+        <!--  Add Lesson Form  -->
+        <AbsoluteLayout
+            x:Name="AddLessonFrame"
+            Padding="10"
+            AbsoluteLayout.LayoutBounds="10,10"
+            AbsoluteLayout.LayoutFlags="None"
+            BackgroundColor="#1B3E75"
+            HorizontalOptions="Center"
+            IsVisible="False"
+            VerticalOptions="Center"
+            WidthRequest="300">
 
 
             <StackLayout AbsoluteLayout.LayoutBounds="1,1,1,1" AbsoluteLayout.LayoutFlags="All">
-                <Label Text="Ders Ekle" 
-                       FontSize="Large"
-                       HorizontalOptions="Center"
-                       TextColor="White"/>
-                <Picker x:Name="DayPicker" Title="Gün Seçin" TitleColor="LightGrey" />
+                <Label
+                    FontSize="Large"
+                    HorizontalOptions="Center"
+                    Text="Ders Ekle"
+                    TextColor="White" />
+                <Picker
+                    x:Name="DayPicker"
+                    Title="Gün Seçin"
+                    TitleColor="LightGrey" />
 
-                <Picker x:Name="TimePicker" Title="Saat Seçin" TitleColor="LightGrey" />
-                <Entry x:Name="SubjectEntry" Placeholder="Ders (Örn: Matematik)" PlaceholderColor="LightGray" />
-                <Button Text="Ekle" 
-                        TextColor="#1B3E75" 
-                        BackgroundColor="LightGray" 
-                        Clicked="OnAddButtonClicked" 
-                        WidthRequest="100" 
-                        HeightRequest="40" 
-                        />
+                <Picker
+                    x:Name="TimePicker"
+                    Title="Saat Seçin"
+                    TitleColor="LightGrey" />
+                <Entry
+                    x:Name="SubjectEntry"
+                    Placeholder="Ders (Örn: Matematik)"
+                    PlaceholderColor="LightGray" />
+                <Button
+                    BackgroundColor="LightGray"
+                    Clicked="EkleButonAtama"
+                    HeightRequest="40"
+                    Text="Ekle"
+                    TextColor="#1B3E75"
+                    WidthRequest="100" />
             </StackLayout>
 
-            <!-- Close Button -->
-            <Button Text="X"
-                    FontAttributes="Bold"
-                    WidthRequest="40"
-                    HeightRequest="40"
-                    CornerRadius="40"
-                    BackgroundColor="LightGray"
-                    TextColor="#1B3E75"
-                    AbsoluteLayout.LayoutBounds="1, 0, AutoSize, AutoSize"
-                    AbsoluteLayout.LayoutFlags="PositionProportional"
-                    Clicked="OnCloseButtonClicked" />
+            <!--  Close Button  -->
+            <Button
+                AbsoluteLayout.LayoutBounds="1, 0, AutoSize, AutoSize"
+                AbsoluteLayout.LayoutFlags="PositionProportional"
+                BackgroundColor="LightGray"
+                Clicked="KapamaButonAtama"
+                CornerRadius="40"
+                FontAttributes="Bold"
+                HeightRequest="40"
+                Text="X"
+                TextColor="#1B3E75"
+                WidthRequest="40" />
         </AbsoluteLayout>
     </Grid>
 </ContentPage>
 
-    
-    
-    
+
+
+
