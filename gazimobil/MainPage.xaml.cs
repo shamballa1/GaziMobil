@@ -21,7 +21,7 @@ namespace gazimobil
         public ObservableCollection<DuyuruModel> DuyurularListesi { get; set; }
         public ICommand OpenWebViewCommand { get; private set; }
         private DateTime currentDate;
-        private int currentPage = 1;
+        private int ŞuankiSayfa = 1;
 
         public MainPage()
         {
@@ -30,7 +30,7 @@ namespace gazimobil
             OpenWebViewCommand = new Command<string>(async (url) => await OpenWebView(url));
             this.BindingContext = this;
             currentDate = DateTime.Now;
-            LoadDuyurular();
+            DuyuruYükle();
             MenuYukle(currentDate);
             LoadWeatherData();
         }
@@ -70,25 +70,19 @@ namespace gazimobil
             }
         }
         
-        //Ders Programı
-        private async void DersProgramiButtonClicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new DersprogramiPage());
-        }
-
-
+        
         //Duyurular
         private async Task OpenWebView(string url)
         {
             await Navigation.PushAsync(new WebViewPage(url));
         }
 
-        private async void LoadDuyurular()
+        private async void DuyuruYükle()
         {
             try
             {
-                var url = $"https://gazi.edu.tr/view/announcement-list?id={currentPage}&type=1&SearchString=&dates=&date=";
-                var duyurular = await GetDuyurularAsync(url);
+                var url = $"https://gazi.edu.tr/view/announcement-list?id={ŞuankiSayfa}&type=1&SearchString=&dates=&date=";
+                var duyurular = await DuyurularıGetir(url);
                 if (duyurular.Count > 0)
                 {
                     DuyurularListesi.Clear();
@@ -101,7 +95,7 @@ namespace gazimobil
                 {
                     await DisplayAlert("Bilgi", "Gösterilecek duyuru bulunamadı.", "Tamam");
                 }
-                UpdatePageLabels();
+                SayfaEtiketleriniGüncelle();
             }
             catch (Exception ex)
             {
@@ -110,7 +104,7 @@ namespace gazimobil
             }
         }
 
-        private async Task<List<DuyuruModel>> GetDuyurularAsync(string url)
+        private async Task<List<DuyuruModel>> DuyurularıGetir(string url)
         {
             List<DuyuruModel> duyurular = new();
 
@@ -164,17 +158,34 @@ namespace gazimobil
             return duyurular;
         }
 
-        private void UpdatePageLabels()
+        private void SayfaEtiketleriniGüncelle()
         {
-            PageLabel1.Text = (currentPage - 1).ToString();
-            PageLabel2.Text = currentPage.ToString();
-            PageLabel3.Text = (currentPage + 1).ToString();
+            PageLabel1.Text = (ŞuankiSayfa - 1).ToString();
+            PageLabel2.Text = ŞuankiSayfa.ToString();
+            PageLabel3.Text = (ŞuankiSayfa + 1).ToString();
 
-            PageLabel1.IsVisible = currentPage > 1;
+            PageLabel1.IsVisible = ŞuankiSayfa > 1;
             PageLabel1.TextColor = Color.FromArgb("#1B3E75");
             PageLabel2.TextColor = Colors.Red;
             PageLabel3.TextColor = Color.FromArgb("#1B3E75");
         }
+
+        private void OncekiButonuTıklandığında(object sender, EventArgs e)
+        {
+            if (ŞuankiSayfa > 1)
+            {
+                ŞuankiSayfa--;
+                DuyuruYükle();
+                SayfaEtiketleriniGüncelle();
+            }
+        }
+
+        private void SonrakiButonuTıklandığında(object sender, EventArgs e)
+        {
+            ŞuankiSayfa++;
+            DuyuruYükle();
+            SayfaEtiketleriniGüncelle();
+        }               
 
         //YEMEK LİSTESİ 
         private async void MenuYukle(DateTime date)
@@ -240,6 +251,19 @@ namespace gazimobil
             return "Bugün için menü bulunamadı.";
         }
 
+        private void SağaKaydir(object sender, EventArgs e)
+        {
+            currentDate = currentDate.AddDays(-1);
+            MenuYukle(currentDate);
+        }
+
+        private void SolaKaydir(object sender, EventArgs e)
+        {
+            currentDate = currentDate.AddDays(1);
+            MenuYukle(currentDate);
+        }
+
+        //sabit alt menü
         private async Task AnimateAndNavigate(string url)
         {
             await Navigation.PushAsync(new WebViewPage(url));
@@ -268,35 +292,6 @@ namespace gazimobil
         private async void LinkedinButtonClicked(object sender, EventArgs e)
         {
             await AnimateAndNavigate("https://www.linkedin.com/school/gazi-university/?originalSubdomain=tr");
-        }
-
-        private void OnSwipeRight(object sender, EventArgs e)
-        {
-            currentDate = currentDate.AddDays(-1);
-            MenuYukle(currentDate);
-        }
-
-        private void OnSwipeLeft(object sender, EventArgs e)
-        {
-            currentDate = currentDate.AddDays(1);
-            MenuYukle(currentDate);
-        }
-
-        private void OnPreviousPageButtonClicked(object sender, EventArgs e)
-        {
-            if (currentPage > 1)
-            {
-                currentPage--;
-                LoadDuyurular();
-                UpdatePageLabels();
-            }
-        }
-
-        private void OnNextPageButtonClicked(object sender, EventArgs e)
-        {
-            currentPage++;
-            LoadDuyurular();
-            UpdatePageLabels();
         }
     }
 }
