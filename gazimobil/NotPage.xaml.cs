@@ -2,68 +2,67 @@
 using System.Collections.Generic;
 using Microsoft.Maui.Controls;
 
-
 namespace gazimobil
 {
     public partial class NotPage : ContentPage
     {
-        private List<Course> courses = new List<Course>();
+        private List<Dersler> dersler = new List<Dersler>();
 
         public NotPage()
         {
             InitializeComponent();
         }
 
-        private void OnCalculationTypeChanged(object sender, EventArgs e)
+        private void HesaplamaTuruDegisti(object sender, EventArgs e)
         {
-            bool isSemester = CalculationTypePicker.SelectedIndex == 0;
-            bool isBoth = CalculationTypePicker.SelectedIndex == 1;
+            bool donemlik = HesaplamaTuruPicker.SelectedIndex == 0;
+            bool genel = HesaplamaTuruPicker.SelectedIndex == 1;
 
-            SemesterInputs.IsVisible = isSemester || isBoth;
-            BothInputs.IsVisible = isBoth;
+            DonemGirdileri.IsVisible = donemlik || genel;
+            GenelGirdileri.IsVisible = genel;
         }
 
-        private async void OnAddCourseClicked(object sender, EventArgs e)
+        private async void DersEkleClicked(object sender, EventArgs e)
         {
-            string courseName = CourseNameEntry.Text;
-            if (string.IsNullOrWhiteSpace(courseName))
+            string dersAdi = DersAdiEntry.Text;
+            if (string.IsNullOrWhiteSpace(dersAdi))
             {
                 await DisplayAlert("Hata", "Lütfen ders adını girin.", "Tamam");
                 return;
             }
 
-            if (CreditPicker.SelectedIndex == -1)
+            if (KrediPicker.SelectedIndex == -1)
             {
                 await DisplayAlert("Hata", "Lütfen Kredi / AKTS seçin.", "Tamam");
                 return;
             }
 
-            if (GradePicker.SelectedIndex == -1)
+            if (NotPicker.SelectedIndex == -1)
             {
                 await DisplayAlert("Hata", "Lütfen harf notu seçin.", "Tamam");
                 return;
             }
 
-            double credit = double.Parse(CreditPicker.SelectedItem.ToString());
-            string gradeLetter = GradePicker.SelectedItem.ToString();
-            double grade = GetNumericGrade(gradeLetter);
+            double kredi = double.Parse(KrediPicker.SelectedItem.ToString());
+            string harfNotu = NotPicker.SelectedItem.ToString();
+            double not = HarfNotunuAl(harfNotu);
 
-            Course course = new Course { Name = courseName, Credit = credit, Grade = grade, GradeLetter = gradeLetter };
-            courses.Add(course);
-            CoursesListView.ItemsSource = null;
-            CoursesListView.ItemsSource = courses;
+            Dersler ders = new Dersler { Adi = dersAdi, Kredi = kredi, Not = not, HarfNotu = harfNotu };
+            dersler.Add(ders);
+            DerslerListView.ItemsSource = null;
+            DerslerListView.ItemsSource = dersler;
 
-            UpdateAverages();
+            OrtalamalariGuncelle();
 
-            // Input alanlarını sıfırla
-            CourseNameEntry.Text = string.Empty;
-            CreditPicker.SelectedIndex = -1;
-            GradePicker.SelectedIndex = -1;
+            
+            DersAdiEntry.Text = string.Empty;
+            KrediPicker.SelectedIndex = -1;
+            NotPicker.SelectedIndex = -1;
         }
 
-        private double GetNumericGrade(string gradeLetter)
+        private double HarfNotunuAl(string harfNotu)
         {
-            return gradeLetter switch
+            return harfNotu switch
             {
                 "AA" => 4.0,
                 "BA" => 3.5,
@@ -78,77 +77,74 @@ namespace gazimobil
             };
         }
 
-        private void UpdateAverages()
+        private void OrtalamalariGuncelle()
         {
-            double totalPoints = 0;
-            double totalCredits = 0;
+            double toplamPuan = 0;
+            double toplamKredi = 0;
 
-            foreach (var course in courses)
+            foreach (var ders in dersler)
             {
-                totalPoints += course.Credit * course.Grade;
-                totalCredits += course.Credit;
+                toplamPuan += ders.Kredi * ders.Not;
+                toplamKredi += ders.Kredi;
             }
 
-            double semesterAverage = totalPoints / totalCredits;
-            SemesterAverageLabel.Text = semesterAverage.ToString("F2");
-
-
+            double donemOrtalamasi = toplamPuan / toplamKredi;
+            DonemOrtalamasiLabel.Text = donemOrtalamasi.ToString("F2");
         }
 
-        private async void OnCalculateBothGpaClicked(object sender, EventArgs e)
+        private async void GenelNotOrtalamasiHesaplaClicked(object sender, EventArgs e)
         {
-            if (!double.TryParse(BothCreditsEntry.Text, out double existingCredits) || existingCredits <= 0)
+            if (!double.TryParse(GenelKrediEntry.Text, out double mevcutKredi) || mevcutKredi <= 0)
             {
                 await DisplayAlert("Hata", "Lütfen geçerli bir mevcut kredi girin.", "Tamam");
                 return;
             }
 
-            if (!double.TryParse(BothGpaEntry.Text, out double existingGpa) || existingGpa < 0 || existingGpa > 4)
+            if (!double.TryParse(GenelNotOrtalamasiEntry.Text, out double mevcutNotOrtalamasi) || mevcutNotOrtalamasi < 0 || mevcutNotOrtalamasi > 4)
             {
                 await DisplayAlert("Hata", "Lütfen geçerli bir mevcut ortalama girin.", "Tamam");
                 return;
             }
 
-            double totalPoints = existingGpa * existingCredits;
-            double totalCredits = existingCredits;
+            double toplamPuan = mevcutNotOrtalamasi * mevcutKredi;
+            double toplamKredi = mevcutKredi;
 
-            foreach (var course in courses)
+            foreach (var ders in dersler)
             {
-                totalPoints += course.Credit * course.Grade;
-                totalCredits += course.Credit;
+                toplamPuan += ders.Kredi * ders.Not;
+                toplamKredi += ders.Kredi;
             }
 
-            double overallGpa = totalPoints / totalCredits;
-            BothOverallGpaLabel.Text = overallGpa.ToString("F2");
+            double genelNotOrtalamasi = toplamPuan / toplamKredi;
+            GenelGenelNotOrtalamasiLabel.Text = genelNotOrtalamasi.ToString("F2");
 
-            UpdateAverages();
+            OrtalamalariGuncelle();
         }
 
-        private void OnDeleteCourse(object sender, EventArgs e)
+        private void DersSil(object sender, EventArgs e)
         {
             var menuItem = sender as MenuItem;
-            var course = menuItem?.BindingContext as Course;
-            if (course != null)
+            var ders = menuItem?.BindingContext as Dersler;
+            if (ders != null)
             {
-                courses.Remove(course);
-                CoursesListView.ItemsSource = null;
-                CoursesListView.ItemsSource = courses;
-                UpdateAverages();
+                dersler.Remove(ders);
+                DerslerListView.ItemsSource = null;
+                DerslerListView.ItemsSource = dersler;
+                OrtalamalariGuncelle();
             }
         }
     }
 
-    public class Course
+    public class Dersler
     {
-        public string Name { get; set; }
-        public double Credit { get; set; }
-        public double Grade { get; set; }
-        public string GradeLetter { get; set; }
+        public string Adi { get; set; }
+        public double Kredi { get; set; }
+        public double Not { get; set; }
+        public string HarfNotu { get; set; }
 
         public override string ToString()
         {
-            return $"{Name}  Kredi/AKTS: {Credit} Harf Notu: {GradeLetter}";
+            return $"{Adi}  Kredi/AKTS: {Kredi/10} Harf Notu: {HarfNotu}";
         }
     }
 }
-
