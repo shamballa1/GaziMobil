@@ -39,8 +39,8 @@ namespace gazimobil
         {
             try
             {
-                string city = "Ankara";
-                string apiUrl = $"https://api.openweathermap.org/data/2.5/weather?q={city}&mode=xml&lang=tr&units=metric&appid=d8cb0ab350365f7b1f63c4f63a2b9373";
+                string sehir = "Ankara";
+                string apiUrl = $"https://api.openweathermap.org/data/2.5/weather?q={sehir}&mode=xml&lang=tr&units=metric&appid=d8cb0ab350365f7b1f63c4f63a2b9373";
 
                 HttpClient client = new HttpClient();
                 HttpResponseMessage response = await client.GetAsync(apiUrl);
@@ -50,13 +50,13 @@ namespace gazimobil
                     string xmlData = await response.Content.ReadAsStringAsync();
                     XDocument xmlDoc = XDocument.Parse(xmlData);
 
-                    string temperature = xmlDoc.Root.Element("temperature").Attribute("value").Value;
-                    string weatherDescription = xmlDoc.Root.Element("weather").Attribute("value").Value;
+                    string derece = xmlDoc.Root.Element("temperature").Attribute("value").Value;
+                    string havadurumu_ = xmlDoc.Root.Element("weather").Attribute("value").Value;
                     string icon = xmlDoc.Root.Element("weather").Attribute("icon").Value;
                     string iconUrl = $"https://openweathermap.org/img/wn/{icon}@2x.png";
 
-                    WeatherLabel.Text = $"{weatherDescription}";
-                    WeatherLabel2.Text = $"{temperature}°C";
+                    WeatherLabel.Text = $"{havadurumu_}";
+                    WeatherLabel2.Text = $"{derece}°C";
                     WeatherIcon.Source = ImageSource.FromUri(new Uri(iconUrl));
                 }
                 else
