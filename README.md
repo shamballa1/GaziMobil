@@ -1,4 +1,4 @@
-# Gazi Mobil
+<h1 align="center">GAZİ MOBİL</h1>
 
 BM102 Programlama 2 dersimizin bahar döneminde verilen proje ödevinin reposudur.
 
@@ -20,9 +20,9 @@ Sol üstte bulunan menü sayfasına tıkladığımzıda karşımıza 8 satırlı
 
 Özetle, bu projemizde üniversite hayatını kolaylaştıracak birtakım özellikler ekleyip üniversitemizde bulunan herkese faydalı olmayı amaçladık.
 
-Projeyi hazırlayanlar:
-İbrahim Kamil Şahin
-Ahmet Talha Akbul
-Taha Emre Orhan
-Ahmet Balkan
-Bedirhan Yiğit
+Projeyi hazırlayanlar:  
+- İbrahim Kamil Şahin kamilsahinnx@gmail.com
+- Ahmet Talha Akbul   hmtakbl3416@gmail.com
+- Taha Emre Orhan     teorhn@gmail.com
+- Ahmet Balkangulyyev ahmetbalkangulyyew@gmail.com
+- Bedirhan Yiğit      1bedirhanygt@gmail.com
