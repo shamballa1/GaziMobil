@@ -29,7 +29,8 @@ Projeyi hazırlayanlar:
 
 
 ![gaziMobilss1](https://github.com/shamballa1/GaziMobil/assets/87015117/5e2f6570-7945-4e8b-939a-d37237155c7f)
+![gaziMobilss5](https://github.com/shamballa1/GaziMobil/assets/87015117/1ec3e557-c370-40b9-8210-1c4cfc68392e)
 ![gaziMobilss2](https://github.com/shamballa1/GaziMobil/assets/87015117/d18a376e-bc51-4bef-85fc-8426f38b5140)
 ![gaziMobilss3](https://github.com/shamballa1/GaziMobil/assets/87015117/391fb5d4-db01-4118-bf1a-bd5476c5d53a)
 ![gaziMobilss4](https://github.com/shamballa1/GaziMobil/assets/87015117/765dfd92-f558-4045-a1fe-3bcbdeed193f)
-![gaziMobilss5](https://github.com/shamballa1/GaziMobil/assets/87015117/1ec3e557-c370-40b9-8210-1c4cfc68392e)
+
